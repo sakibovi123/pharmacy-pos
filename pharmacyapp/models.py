@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from datetime import datetime, date
 # Create your models here.
 
+
 class Shop(models.Model):
     created_at = models.DateField(default=date.today)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -17,6 +18,7 @@ class Shop(models.Model):
     is_active = models.BooleanField(default=False, null=True)
     vat_amount = models.FloatField(null=True, default=0)
     show_mushak = models.BooleanField(default=False, null=True)
+    show_vat = models.BooleanField(null=True, blank=True)
 
     class Meta:
         ordering = ["-id"]
@@ -48,9 +50,8 @@ class CityModel(models.Model):
         return self.city_name
 
 
-
-
 class Vendor(models.Model):
+    created_at = models.DateTimeField(default=datetime.now)
     vendor_name = models.CharField(max_length=255, unique=True)
     tax_id = models.IntegerField(null=True)
     shop = models.ForeignKey(Shop, on_delete=models.SET_NULL, null=True)
@@ -65,13 +66,22 @@ class Vendor(models.Model):
     website = models.CharField(max_length=255, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
 
+    class Meta:
+        ordering = ["-id"]
+
+    def __self__(self):
+        return self.vendor_name
 
 
 class MedicineCategory(models.Model):
+    active_choice = (
+        ("ACTIVE", "ACTIVE"),
+        ("CLOSED", "CLOSED")
+    )
+    created_at = models.DateTimeField(default=datetime.now)
     med_cat_name = models.CharField(max_length=255)
     shop = models.ForeignKey(Shop, on_delete=models.SET_NULL, null=True)
-    is_active = models.BooleanField(default=False)
-
+    is_active = models.CharField(max_length=255, null=True, blank=True, choices=active_choice)
 
     class Meta:
         ordering = ["-id"]
@@ -81,6 +91,7 @@ class MedicineCategory(models.Model):
 
 
 class MedicineBrand(models.Model):
+    created_at = models.DateTimeField(default=datetime.now)
     med_brand_name = models.CharField(max_length=255)
     shop = models.ForeignKey(Shop, on_delete=models.SET_NULL, null=True)
     med_brand_logo = models.ImageField(upload_to="images/")
@@ -101,6 +112,7 @@ class MedicineBrand(models.Model):
 
 
 class MedicinePower(models.Model):
+    created_at = models.DateTimeField(default=datetime.now)
     power_amount = models.CharField(max_length=255)
 
     class Meta:
@@ -111,6 +123,11 @@ class MedicinePower(models.Model):
 
 
 class Medicine(models.Model):
+    stock_choice = (
+        ("YES", "YES"),
+        ("NO", "NO")
+    )
+    created_at = models.DateTimeField(default=datetime.now)
     med_name = models.CharField(max_length=255)
     med_image = models.ImageField(upload_to="images/")
     med_category = models.ForeignKey(MedicineCategory, on_delete=models.SET_NULL, null=True)
@@ -119,9 +136,8 @@ class Medicine(models.Model):
     med_vendor = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True)
     buying_price = models.DecimalField(decimal_places=2, max_digits=10, default=0.00)
     selling_price = models.DecimalField(decimal_places=2, max_digits=10, default=0.00)
-    is_out_of_stock = models.BooleanField(default=False)
+    is_out_of_stock = models.CharField(max_length=255, choices=stock_choice, null=True)
     stock_amount = models.PositiveIntegerField()
-
 
     class Meta:
         ordering = ["-id"]
@@ -153,10 +169,10 @@ class MedicineCartItems(models.Model):
 
     def __str__(self):
         return str(self.id)
-    
 
 
 class MedicineCheckout(models.Model):
+    created_at = models.DateTimeField(default=datetime.now)
     customer_name = models.CharField(max_length=255)
     customer_phone = models.CharField(max_length=255)
     medicine_items = models.ManyToManyField(MedicineCartItems)
@@ -166,7 +182,6 @@ class MedicineCheckout(models.Model):
     change = models.DecimalField(decimal_places=2, max_digits=10, default=0.00)
     total = models.DecimalField(decimal_places=2, max_digits=10, default=0.00)
     shop = models.ForeignKey(Shop, on_delete=models.SET_NULL, null=True)
-
 
     class Meta:
         ordering = ["-id"]
