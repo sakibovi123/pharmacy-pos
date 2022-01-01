@@ -36,9 +36,10 @@ class PharmaHome(View):
                 "meds": meds,
                 "med_cart_products": med_cart_products,
             }
-            return render(self.request, "home/pharma-home.html", args)
+            return render(request, "homeView/pharma-home.html", args)
         else:
             return redirect("warning")
+
     def post(self, request, shop_id, *args, **kwargs):
         shop_id = get_object_or_404(Shop, pk=shop_id)
         if shop_id.is_active == True:
@@ -165,11 +166,13 @@ class PharmaReceiptView(View):
     def post(self, request, id, shop_id, *args, **kwargs):
         pass
 
-## Admin panel classes
-# Medicine/category/brand/vendor Adding
-# editing
-# deleting
+"""
+Admin panel classes
+Medicine/category/brand/vendor Adding
+editing
+deleting
 
+"""
 
 class PharmaAdminView(View):
     def get(self, request, shop_id, *args, **kwargs):
@@ -201,6 +204,23 @@ class MedicineOperation(View):
             return render()
         else:
             return redirect("warning")
+
+    def post(self, request, shop_id, med_id):
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        medId = get_object_or_404(Medicine, pk=med_id)
+        if request.method == "POST":
+            medId.delete()
+            return redirect("")
+
+
+class MedicineCreateView(View):
+    def get(self, request, shop_id):
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        if shopId.user == request.user:
+            args = {}
+            return render()
+        else:
+            return redirect("")
 
     def post(self, request, shop_id, *args, **kwargs):
         shopId = get_object_or_404(Shop, pk=shop_id)
@@ -235,7 +255,20 @@ class MedicineOperation(View):
 
             return redirect("failed")
 
-    def put(self, request, id, shop_id, *args, **kwargs):
+
+class MedicineUpdateView(View):
+    def get(self, request, shop_id, med_id):
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        med_ids = get_object_or_404(Medicine, pk=id)
+
+        if shopId.user == request.user:
+            args = {}
+            return render()
+        else:
+            return redirect()
+
+
+    def post(self, request, id, shop_id, *args, **kwargs):
         shopId = get_object_or_404(Shop, pk=shop_id)
         med_ids = get_object_or_404(Medicine, pk=id)
         if shopId.user == request.user:
@@ -256,22 +289,33 @@ class MedicineOperation(View):
             return redirect("")
         return redirect("")
 
-    def delete(self, request, id, shop_id, *args, **kwargs):
-        shopId = get_object_or_404(Shop, pk=shop_id)
-        med_id = get_object_or_404(Medicine, pk=id)
-        if shopId.user == request.user:
-            if request.method == "POST":
-                med_id.delete()
-                return redirect("somewhere")
-            return redirect("")
-        else:
-            return redirect("")
-
 
 # Medicine Category Get, Insert, put, Delete
 
 class MedicineCategoryOperation(View):
     def get(self, request, shop_id, *args, **kwargs):
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        if shopId.user == request.user:
+            cats = MedicineCategory.objects.filter(
+                shop=shopId.id
+            )
+            args = {
+                "shopId": shopId,
+                "cats": cats,
+            }
+            return render()
+        else:
+            return redirect("")
+    
+    def post(self, request, shop_id, cat_id):
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        catId = get_object_or_404(MedicineCategory, pk=cat_id)
+        if request.method == "POST":
+            catId.delete()
+            return redirect(f"")
+
+class MedicineCategoryCreateView(View):
+    def get(self, request, shop_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
         if shopId.user == request.user:
             cats = MedicineCategory.objects.filter(
@@ -306,9 +350,20 @@ class MedicineCategoryOperation(View):
         else:
             return redirect()
 
-    def put(self, request, shop_id, id, *args, **kwargs):
+
+class MedicineCategoryUpdateView(View):
+    def get(self, request, shop_id, cat_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
-        med_obj = get_object_or_404(MedicineCategory, pk=id)
+        catId = get_object_or_404(MedicineCategory, pk=cat_id)
+        if shopId.user == request.user:
+            args = {}
+            return render()
+        else:
+            return redirect(f"")
+
+    def post(self, request, shop_id, cat_id, *args, **kwargs):
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        med_obj = get_object_or_404(MedicineCategory, pk=cat_id)
         if shopId.user == request.user:
             if request.method == "POST":
                 med_obj.med_cat_name = request.POST.get("med_cat_name")
@@ -319,25 +374,11 @@ class MedicineCategoryOperation(View):
         else:
             return redirect()
 
-    def delete(self, request, shop_id, id, *args, **kwargs):
-        shopId = get_object_or_404(Shop, pk=shop_id)
-        med_obj = get_object_or_404(MedicineCategory, pk=id)
-        if shopId.user == request.user:
-            if request.user:
-                med_obj.delete()
-                return redirect("")
-            else:
-                return redirect("")
-        else:
-            return redirect("")
 
-
-# Medicine Brand Get, Insert, put, Delete
+"""
+Medicine Brand Get, Insert, put, Delete
+""" 
 class MedicineBrandOperation(View):
-    def get_object(self, request, id, *args, **kwargs):
-        queryset = MedicineBrand.objects.get(pk=id)
-        return queryset
-
     def get(self, request, shop_id, *args, **kwargs):
         shopId = get_object_or_404(Shop, pk=shop_id)
         if shopId.user == request.user:
@@ -351,6 +392,26 @@ class MedicineBrandOperation(View):
             return render(request, "", args)
         else:
             return redirect("")
+
+
+    def post(self, request, shop_id, brand_id):
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        brand_obj = get_object_or_404(MedicineBrand, pk=brand_id)
+        if shopId.user == request.user:
+            if request.method == "POST":
+                brand_obj.delete()
+                return redirect()
+        return redirect()
+
+
+class MedicineBrandCreateView(View):
+    def get(self, request, shop_id):
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        if shopId.user == request.user:
+            args = {}
+            return render()
+        else:
+            return None
 
     def post(self, request, shop_id, *args, **kwargs):
         shopId = get_object_or_404(Shop, pk=shop_id)
@@ -369,7 +430,18 @@ class MedicineBrandOperation(View):
         else:
             return redirect("")
 
-    def put(self, request, shop_id, id, *args, **kwargs):
+
+class MedicineBrandUpdateView(View):
+    def get(self, request, shop_id, brand_id):
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        brandId = get_object_or_404(MedicineBrand, pk=brand_id)
+        if shopId.user == request.user:
+            args = {}
+            return render()
+        else:
+            return None
+
+    def post(self, request, shop_id, brand_id, *args, **kwargs):
         shopId = get_object_or_404(Shop, pk=shop_id)
         brand_obj = get_object_or_404(MedicineBrand, pk=id)
         if shopId.user == request.user:
@@ -383,15 +455,6 @@ class MedicineBrandOperation(View):
         else:
             return redirect()
 
-    def delete(self, request, shop_id, id, *args, **kwargs):
-        shopId = get_object_or_404(Shop, pk=shop_id)
-        brand_obj = get_object_or_404(MedicineBrand, pk=id)
-
-        if shopId.user == request.user:
-            if request.method == "POST":
-                brand_obj.delete()
-                return redirect()
-        return redirect()
 
 #####
 """
@@ -411,16 +474,116 @@ class MedicineVendorView(View):
         else:
             return redirect("")
 
-    def post(self, request, shop_id, *args, **kwargs):
+    # Deleting vendor
+    def post(self, request, shop_id, vendor_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
+        vendorId = get_object_or_404(Vendor, pk=vendor_id)
+        if request.method == "POST":
+            vendorId.delete()
+
+            return redirect(f"")
+
+
+class MedicineCreateView(View):
+    def get(self, request, shop_id):
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        msg = None
         if shopId.user == request.user:
-            if request.method == "POST":
-                pass
+            vendors = Vendor.objects.filter(
+                shop=shopId.id
+            )
+            args = {
+                "shopId": shopId,
+                "vendors": vendors,
+            }
+            return render(request, "", args)
+        else:
+            return redirect("warning")
 
-    def put(self, request, shop_id, *args, **kwargs):
-        pass
 
-    def delete(self, request, shop_id, *args, **kwargs):
-        pass
+    def post(self, request, shop_id):
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        if request.method == "POST":
+                post = request.POST
+                vendor_name = post.get("vendor_name")
+                tax_id = post.get("tax_id")
+                shop = shopId.id
+                address = post.get("address")
+                country = post.get("country")
+                city = post.get("city")
+                zip_code = post.get("zip_code")
+                trade_license = post.get("trade_license")
+                phone_number = post.get("phone_number")
+                contact_name = post.get("contact_name")
+                email = post.get("email")
+                website = post.get("website")
+                
+                if zip_code == "" and email == "" and website == "":
+                    vendor = Vendor(
+                        vendor_name=vendor_name,
+                        tax_id=tax_id,
+                        shop=shop,
+                        address=address,
+                        country=CountryModel.objects.get(id=country),
+                        city=CityModel.objects.get(id=city),
+                        trade_license=trade_license,
+                        phone_number=phone_number,
+                        contact_name=contact_name
+                    )
 
+                    vendor.save()
+                    return redirect(f"")
+
+                else:
+                    vendor = Vendor(
+                        vendor_name=vendor_name,
+                        tax_id=tax_id,
+                        shop=shop,
+                        address=address,
+                        country=CountryModel.objects.get(id=country),
+                        city=CityModel.objects.get(id=city),
+                        trade_license=trade_license,
+                        phone_number=phone_number,
+                        contact_name=contact_name,
+                        zip_code=zip_code,
+                        email=email,
+                        website=website
+                    )
+
+                    vendor.save()
+                    return redirect(f"")
+
+
+class MedicineVendorUpdateView(View):
+    def get(self, request, shop_id, vendor_id):
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        vendorId = get_object_or_404(Vendor, pk=vendor_id)
+
+        if shopId.user == request.user:
+            args = {}
+            return render()
+        else:
+            return render("warning")
+    
+
+    def post(self, request, shop_id, vendor_id):
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        vendorId = get_object_or_404(Vendor, pk=vendor_id)
+
+        if request.method == "POST":
+            vendorId.vendor_name = request.POST.get("vendor_name")
+            vendorId.tax_id = request.POST.get("tax_id")
+            vendorId.shop = shopId.id
+            vendorId.address = request.POST.get("address")
+            vendorId.country = CountryModel.objects.get(id=request.POST.get("country"))
+            vendorId.city = CityModel.objects.get(request.POST.get("vendor_name"))
+            vendorId.zip_code = request.POST.get("zip_code")
+            vendorId.trade_license = request.POST.get("trade_license")
+            vendorId.phone_number = request.POST.get("phone_number")
+            vendorId.contact_name = request.POST.get("contact_name")
+            vendorId.email = request.POST.get("email")
+            vendorId.website = request.POST.get("website")
+
+            vendorId.save()
+            return redirect(f"")
 

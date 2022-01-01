@@ -64,7 +64,6 @@ class Vendor(models.Model):
     contact_name = models.CharField(max_length=255, null=True)
     email = models.EmailField(null=True)
     website = models.CharField(max_length=255, null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
 
     class Meta:
         ordering = ["-id"]
