@@ -35,8 +35,9 @@ class PharmaHome(View):
                 "med_cats": med_cats,
                 "meds": meds,
                 "med_cart_products": med_cart_products,
+                "shop_id": shop_id,
             }
-            return render(request, "homeView/pharma-home.html", args)
+            return render(request, "homeView/home.html", args)
         else:
             return redirect("warning")
 
@@ -73,7 +74,7 @@ class PharmaHome(View):
 # get method will fetch all order by shop owner
 
 
-class PharmaOrderView(View):
+class PharmaCartView(View):
     def get(self, request, shop_id, *args, **kwargs):
         shop_id = get_object_or_404(Shop, pk=shop_id)
         if shop_id.user == request.user:
@@ -99,50 +100,51 @@ class PharmaOrderView(View):
     def post(self, request, shop_id, *args, **kwargs):
         pass
 
-    def checkout(self, request, shop_id, *args, **kwargs):
-        shopId = get_object_or_404(Shop, pk=shop_id)
-        med_cart = request.session.get("med_cart", None)
-        ids = list(request.session.get('med_cart').keys())
-        medicine_items = Medicine.get_medicines(ids)
+def checkout(self, request, shop_id, *args, **kwargs):
+    shopId = get_object_or_404(Shop, pk=shop_id)
+    med_cart = request.session.get("med_cart", None)
+    ids = list(request.session.get('med_cart').keys())
+    medicine_items = Medicine.get_medicines(ids)
 
-        if request.method == "POST":
-            post_data = request.POST
-            customer_name = post_data.get("customer_name")
-            customer_phone = post_data.get("customer_phone")
-            discount = post_data.get("discount")
-            amount_received = post_data.get("amount_received")
-            change = post_data.get("change")
-            vat_amount = shopId.vat_amount
+    if request.method == "POST":
+        post_data = request.POST
+        customer_name = post_data.get("customer_name")
+        customer_phone = post_data.get("customer_phone")
+        discount = post_data.get("discount")
+        amount_received = post_data.get("amount_received")
+        change = post_data.get("change")
+        vat_amount = shopId.vat_amount
 
-            med_checkout = MedicineCheckout(
-                customer_name=customer_name,
-                customer_phon=customer_phone,
-                discount=discount,
-                amount_received=amount_received,
-                change=change
+        med_checkout = MedicineCheckout(
+            customer_name=customer_name,
+            customer_phon=customer_phone,
+            discount=discount,
+            amount_received=amount_received,
+            change=change,
+            shop=shopId.id,
+        )
+        med_checkout.save()
+
+
+        total = 0
+
+        for item in medicine_items:
+            quantity = med_cart.get(str(item.id))
+            total += item.selling_price * quantity
+            medicineCartItems = MedicineCartItems(
+                items=item,
+                quantity=quantity
             )
-            med_checkout.save()
+            medicineCartItems.save()
+            MedicineCheckout.items.add(medicineCartItems)
 
+        # if float(discount) > 0:
+        #     grand_total = grand_total - (grand_total * Decimal(float(discount) / 100.0))
 
-            total = 0
-
-            for item in medicine_items:
-                quantity = med_cart.get(str(item.id))
-                total += item.selling_price * quantity
-                medicineCartItems = MedicineCartItems(
-                    items=item,
-                    quantity=quantity
-                )
-                medicineCartItems.save()
-                MedicineCheckout.items.add(medicineCartItems)
-
-            # if float(discount) > 0:
-            #     grand_total = grand_total - (grand_total * Decimal(float(discount) / 100.0))
-
-            med_checkout.total = total
-            med_checkout.total = med_checkout.total + (vat_amount / 100)
-            med_checkout.save()
-            # trash_checkout.total = grand_total
+        med_checkout.total = total
+        med_checkout.total = med_checkout.total + (vat_amount / 100)
+        med_checkout.save()
+        # trash_checkout.total = grand_total
 
 
 # Here order details view and reciept will be shown
@@ -587,3 +589,19 @@ class MedicineVendorUpdateView(View):
             vendorId.save()
             return redirect(f"")
 
+
+
+"""
+Exception Views
+"""
+
+class SuccessView(View):
+    def get(self, request):
+        args = {}
+        return render(request, "exceptions/success.html", args)
+
+
+class WarningView(View):
+    def get(self, request):
+        args = {}
+        return render(request, "exceptions/warning.html", args)

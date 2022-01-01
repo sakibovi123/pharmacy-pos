@@ -127,6 +127,7 @@ class Medicine(models.Model):
         ("NO", "NO")
     )
     created_at = models.DateTimeField(default=datetime.now)
+    shop = models.ForeignKey(Shop, on_delete=models.SET_NULL, null=True)
     med_name = models.CharField(max_length=255)
     med_image = models.ImageField(upload_to="images/")
     med_category = models.ForeignKey(MedicineCategory, on_delete=models.SET_NULL, null=True)
