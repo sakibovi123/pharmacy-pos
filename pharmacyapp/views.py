@@ -181,6 +181,7 @@ deleting
 class PharmaAdminView(View):
     def get(self, request, shop_id, *args, **kwargs):
         shopId = get_object_or_404(Shop, pk=shop_id)
+        shopTitle = shopId.shop_name
         today_date = date.today()
         per_day__sale = MedicineCheckout.objects.filter(shop=shopId.id, created_at=today_date).aggregate(Sum("total"))
         per_day_sale = per_day__sale.pop("total__sum")
@@ -189,6 +190,7 @@ class PharmaAdminView(View):
                 "shopId": shopId,
                 "today_date": today_date,
                 "per_day_sale": per_day_sale,
+                "shopTitle": shopTitle,
             }
             return render(request, "adminpanel/index.html", args)
         else:
@@ -197,6 +199,23 @@ class PharmaAdminView(View):
     def post(self, request, *args, **kwargs):
         pass
 
+
+
+"""
+Selling Session Action
+1. Opening Time Action
+2. Ending Time Action
+"""
+
+def open_selling(request, shop_id):
+    shopId = get_object_or_404(Shop, pk=shop_id)
+    if shopId.user == request.user:
+        if request.method == "POST":
+            pass
+        args = {}
+        return render()
+    else:
+        return redirect("")
 
 # Medicine insert
 # fetch

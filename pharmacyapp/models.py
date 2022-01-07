@@ -190,7 +190,20 @@ class MedicineCheckout(models.Model):
         return self.customer_phone
 
 
-# class DailySale(models.Model):
-#     created_at = models.DateTimeField()
-#     shop = models.ForeignKey(Shop, on_delete=models.SET_NULL)
+class DailySellingSession(models.Model):
+    created_date = models.DateField(default=date.today)
+    created_at = models.DateTimeField(default=datetime.now)
+    opening_command = models.CharField(max_length=255, null=True, blank=True)
+    ending_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    ending_date = models.DateField(null=True, blank=True)
+    ending_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        ordering = ["-id"]
+
+    def __str__(self):
+        return str(self.created_at)
+
+
+
 
