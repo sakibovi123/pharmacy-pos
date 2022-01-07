@@ -93,7 +93,7 @@ class MedicineBrand(models.Model):
     created_at = models.DateTimeField(default=datetime.now)
     med_brand_name = models.CharField(max_length=255)
     shop = models.ForeignKey(Shop, on_delete=models.SET_NULL, null=True)
-    med_brand_logo = models.ImageField(upload_to="images/")
+    med_brand_logo = models.ImageField(upload_to="images/", null=True, blank=True)
 
     class Meta:
         ordering = ["-id"]
@@ -172,7 +172,7 @@ class MedicineCartItems(models.Model):
 
 
 class MedicineCheckout(models.Model):
-    created_at = models.DateTimeField(default=datetime.now)
+    created_at = models.DateField(default=date.today)
     customer_name = models.CharField(max_length=255)
     customer_phone = models.CharField(max_length=255)
     medicine_items = models.ManyToManyField(MedicineCartItems)
@@ -188,3 +188,9 @@ class MedicineCheckout(models.Model):
     
     def __str__(self):
         return self.customer_phone
+
+
+# class DailySale(models.Model):
+#     created_at = models.DateTimeField()
+#     shop = models.ForeignKey(Shop, on_delete=models.SET_NULL)
+

@@ -2,7 +2,8 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404, render, redirect, HttpResponse
 from .models import *
 from django.views import View
-
+from datetime import datetime, date, timedelta
+from django.db.models import Sum, Avg
 
 # Here we will get pharma homepage
 # Cart functions
@@ -100,6 +101,7 @@ class PharmaCartView(View):
     def post(self, request, shop_id, *args, **kwargs):
         pass
 
+
 def checkout(self, request, shop_id, *args, **kwargs):
     shopId = get_object_or_404(Shop, pk=shop_id)
     med_cart = request.session.get("med_cart", None)
@@ -179,9 +181,16 @@ deleting
 class PharmaAdminView(View):
     def get(self, request, shop_id, *args, **kwargs):
         shopId = get_object_or_404(Shop, pk=shop_id)
+        today_date = date.today()
+        per_day__sale = MedicineCheckout.objects.filter(shop=shopId.id, created_at=today_date).aggregate(Sum("total"))
+        per_day_sale = per_day__sale.pop("total__sum")
         if shopId.user == request.user:
-            args = {}
-            return render()
+            args = {
+                "shopId": shopId,
+                "today_date": today_date,
+                "per_day_sale": per_day_sale,
+            }
+            return render(request, "adminpanel/index.html", args)
         else:
             return redirect("warning")
 
