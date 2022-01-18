@@ -1,0 +1,165 @@
+html, body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-size: 13px !important;
+    font-weight: 400;
+    font-family: Poppins, Helvetica, "sans-serif";
+    -ms-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: var(--artical-background-page);
+}
+.flex-root {
+    -webkit-box-flex: 1;
+    flex: 1;
+    -ms-flex: 1 0 0px;
+}
+.flex-row {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: row !important;
+    flex-direction: row !important;
+}
+.flex-row-fluid {
+    -webkit-box-flex: 1;
+    flex: 1 auto;
+    -ms-flex: 1 0 0px;
+    min-width: 0;
+}
+.flex-column {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+}
+.flex-column-fluid {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+}
+.dropdown-menu.dropdown-menu-lg {
+    width: 350px;
+}
+
+@media (min-width: 1400px){
+    .container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+        max-width: 1340px;
+    }
+}
+
+@media (min-width: 992px){
+    .container, .container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+        padding: 0 30px;
+    } 
+}
+
+@media (min-width: 768px){
+    .flex-md-row {
+        -webkit-box-orient: horizontal !important;
+        -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+        flex-direction: row !important;
+    }
+}
+
+
+.sticky-toolbar {
+    width: 46px;
+    position: fixed;
+    top: 50%;
+    right: 0;
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+    z-index: 95;
+    -webkit-box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
+    box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    border-top-left-radius: 0.42rem;
+    border-bottom-left-radius: 0.42rem;
+
+   
+}
+.timeline.timeline-6{
+    position: relative;
+}
+.timeline.timeline-6:before {
+    content: '';
+    position: absolute;
+    left: 50.5px;
+    width: 4px;
+    top: 0;
+    bottom: 0;
+    background-color: var(--artical-background-element);
+}
+.timeline.timeline-6 .timeline-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 1.7rem;
+
+    .timeline-label {
+        width: 50px;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        font-size: 1rem;
+        font-weight: 500;
+        position: relative;
+        color: #3F4254;
+    }
+
+    .timeline-badge {
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        background-color: var(--artical-background-element);
+        width: 13px;
+        height: 13px;
+        border-radius: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        z-index: 1;
+        position: relative;
+        margin-top: 1px;
+        margin-left: -0.3rem;
+        padding: 3px !important;
+        //border: 6px solid #ffffff !important;
+
+        .icon-xl {
+            font-size: 1.75rem !important;
+        }
+    }
+}
+

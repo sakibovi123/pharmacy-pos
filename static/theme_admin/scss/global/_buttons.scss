@@ -1,0 +1,104 @@
+.btn{
+    padding: 0.825rem 1.42rem;
+    font-size: 1.08rem;
+    line-height: 1.5;
+    border-radius: $border-radius;
+}
+.btn.btn-icon{
+    padding:0;
+}
+.btn.btn-hover-primary:hover:not(.btn-text):not(:disabled):not(.disabled), .btn.btn-hover-primary:focus:not(.btn-text), .btn.btn-hover-primary.focus:not(.btn-text) {
+    color: $white !important;
+    background-color: var(--artical-color-primary) !important;
+    border-color: var(--artical-color-primary) !important;
+}
+
+.btn-primary-hover{
+    color: var(--artical-color-primary);
+
+    &:hover, &:focus{
+        //background-color: lighten(var(--artical-color-primary), 30%);
+        color: var(--artical-color-primary);
+    }
+}
+
+.btn-primary {
+    background-color: var(--artical-background-primary);
+    border-color: var(--artical-background-primary);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+
+    background-color: var(--artical-background-primary-dark);
+    border-color: var(--artical-background-primary);
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+
+    background-color: var(--artical-background-primary-dark) !important;
+    border-color: var(--artical-background-primary-dark) !important;
+}
+
+.btn-light{
+    background-color: var(--artical-background-module);
+    border-color: var(--artical-background-element);
+    color: var(--artical-color-body);
+}
+.btn-outline-primary {
+    color: var(--artical-background-primary);
+    border-color: var(--artical-background-primary);
+}
+
+.btn-outline-primary:hover {
+    
+    background-color: var(--artical-background-primary-dark);
+    border-color: var(--artical-background-primary);
+}
+.btn-outline-primary:focus {
+    color: #fff;
+    background-color: var(--artical-background-primary-dark);
+    border-color: var(--artical-background-primary);
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle {
+
+    background-color: var(--artical-background-primary-darkest) !important;
+    border-color:  var(--artical-background-primary) !important;
+}
+
+
+
+
+
+.btn-secondary {
+    background-color: var(--artical-background-secondary);
+    border-color: var(--artical-background-secondary);
+}
+
+.btn-secondary:hover, .btn-secondary:focus {
+
+    background-color: var(--artical-background-secondary-dark);
+    border-color: var(--artical-background-secondary);
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
+
+    background-color: var(--artical-background-secondary-darkest) !important;
+    border-color:  var(--artical-background-secondary) !important;
+}
+
+
+.btn-outline-secondary:hover {
+    border-color:  var(--artical-background-secondary) !important;
+    color:  var(--artical-background-secondary) !important;
+    background-color: transparent;
+}
+.btn-outline-secondary:not(:disabled):not(.disabled):active, .btn-outline-secondary:not(:disabled):not(.disabled).active, .show > .btn-outline-secondary.dropdown-toggle{
+    color: #fff;
+}
+
+.btn-light-dark{
+    background-color: var(--artical-ligth-dark);
+    border-color: var(--artical-ligth-dark);
+    color: var(--artical-color-body);
+}

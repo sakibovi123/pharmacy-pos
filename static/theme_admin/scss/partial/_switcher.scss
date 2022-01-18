@@ -1,0 +1,99 @@
+
+
+.switch.custom-switch {
+    position: relative;
+    display: inline-block;
+    width:40px;
+    height: 20px;
+    padding-left: 0;
+    .custom-control-label::before{
+        top:0;
+        left: 0;
+        width:40px;
+        height: 20px;
+        border-radius: 0.8rem;
+        box-shadow: none;
+        background-color: var(--artical-background-module);
+       }
+      .custom-control-label::after{
+         top: 2px;
+         left: 3px;
+         width: calc(20px - 4px);
+         height: calc(20px - 4px);
+         background-color: var(--artical-color-dark-secondary);
+       }
+       .custom-control-input:checked ~ .custom-control-label::after {
+         background-color: var( --artical-background-element);
+         transform: translateX(1.6rem);
+     }
+     .custom-control-input:checked ~ .custom-control-label::before {
+        color: #fff;
+        border-color: var(--artical-color-primary);
+        background-color: var(--artical-color-primary);
+    }
+  }
+  .switch.custom-switch.custom-switch-primary{
+    .custom-control-input:checked ~ .custom-control-label::before {
+        color: #fff;
+        border-color: var(--artical-color-primary);
+        background-color: var(--artical-color-primary);
+    }
+  }
+  .switch.custom-switch.custom-switch-secondary{
+    .custom-control-input:checked ~ .custom-control-label::before {
+      
+        border-color: var(--artical-color-secondary);
+        background-color: var(--artical-color-secondary);
+    }
+  }
+  .switch.custom-switch.custom-switch-success{
+    .custom-control-input:checked ~ .custom-control-label::before {  
+        border-color: $success;
+        background-color: $success;
+    }
+  }
+  .switch.custom-switch.custom-switch-danger{
+    .custom-control-input:checked ~ .custom-control-label::before {  
+        border-color: $danger;
+        background-color: $danger;
+    }
+  }
+  .switch.custom-switch.custom-switch-info{
+    .custom-control-input:checked ~ .custom-control-label::before {  
+        border-color: $info;
+        background-color: $info;
+    }
+  }
+  .switch.custom-switch.custom-switch-warning{
+    .custom-control-input:checked ~ .custom-control-label::before {  
+        border-color: $warning;
+        background-color: $warning;
+    }
+  }
+  .switch.custom-switch.custom-switch-dark{
+    .custom-control-input:checked ~ .custom-control-label::before {  
+        border-color: var(--artical-color-dark);
+        background-color: var(--artical-color-dark);
+    }
+  }
+
+
+
+  .custom-switch.custom-switch-glow .custom-control-input:not(:disabled):checked~.custom-control-label::before {
+    box-shadow: 0 0 8px 0 var(--artical-background-primary-darkest)!important;
+}
+.custom-switch.custom-switch-glow.custom-switch-success .custom-control-input:not(:disabled):checked~.custom-control-label::before {
+  box-shadow: 0 0 8px 0 rgba($success, 0.70)!important;
+}
+.custom-switch.custom-switch-glow.custom-switch-info .custom-control-input:not(:disabled):checked~.custom-control-label::before {
+  box-shadow: 0 0 8px 0 rgba($info, 0.70)!important;
+}
+.custom-switch.custom-switch-glow.custom-switch-danger .custom-control-input:not(:disabled):checked~.custom-control-label::before {
+  box-shadow: 0 0 8px 0 rgba($danger, 0.70)!important;
+}
+.custom-switch.custom-switch-glow.custom-switch-warning .custom-control-input:not(:disabled):checked~.custom-control-label::before {
+  box-shadow: 0 0 8px 0 rgba($warning, 0.70)!important;
+}
+.custom-switch.custom-switch-glow.custom-switch-dark .custom-control-input:not(:disabled):checked~.custom-control-label::before {
+  box-shadow: 0 0 8px 0 var(--artical--color-dark-darkest)!important;
+}

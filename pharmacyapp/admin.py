@@ -13,5 +13,6 @@ admin.site.register([
     MedicinePower,
     MedicineCartItems,
     MedicineCheckout,
+    NotificationModel,
     
 ])

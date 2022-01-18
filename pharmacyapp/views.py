@@ -182,17 +182,33 @@ class PharmaAdminView(View):
     def get(self, request, shop_id, *args, **kwargs):
         shopId = get_object_or_404(Shop, pk=shop_id)
         shopTitle = shopId.shop_name
-        today_date = date.today()
-        per_day__sale = MedicineCheckout.objects.filter(shop=shopId.id, created_at=today_date).aggregate(Sum("total"))
-        per_day_sale = per_day__sale.pop("total__sum")
         if shopId.user == request.user:
+            today_date = date.today()
+            per_day__sale = MedicineCheckout.objects.filter(shop=shopId.id, created_at=today_date).aggregate(Sum("total"))
+            per_day_sale = per_day__sale.pop("total__sum")
+            orders = MedicineCheckout.objects.filter(
+                shop=shopId.id
+            )
+            nots = NotificationModel.objects.filter(
+                shop=shopId.id
+            )
+            ## Profit Per week
+
+            print("date date " + str(today_date))
+
+            
+
+
             args = {
                 "shopId": shopId,
                 "today_date": today_date,
                 "per_day_sale": per_day_sale,
                 "shopTitle": shopTitle,
+                "orders": orders,
+                "nots": nots,
             }
-            return render(request, "adminpanel/index.html", args)
+            # return render(request, "adminpanel/index.html", args)
+            return render(request, "Test/index.html", args)
         else:
             return redirect("warning")
 
@@ -213,7 +229,7 @@ def open_selling(request, shop_id):
         if request.method == "POST":
             pass
         args = {}
-        return render()
+        return render(request, "", args)
     else:
         return redirect("")
 
@@ -231,14 +247,14 @@ class MedicineOperation(View):
             args = {
                 "medicines": medicines
             }
-            return render()
+            return render(request, "", args)
         else:
             return redirect("warning")
 
     def post(self, request, shop_id, med_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
         medId = get_object_or_404(Medicine, pk=med_id)
-        if request.method == "POST":
+        if shopId.user == request.user and request.method == "POST":
             medId.delete()
             return redirect("")
 
@@ -247,8 +263,10 @@ class MedicineCreateView(View):
     def get(self, request, shop_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
         if shopId.user == request.user:
-            args = {}
-            return render()
+            args = {
+                "shopId": shopId,
+            }
+            return render(request, "", args)
         else:
             return redirect("")
 
@@ -291,9 +309,12 @@ class MedicineUpdateView(View):
         shopId = get_object_or_404(Shop, pk=shop_id)
         med_ids = get_object_or_404(Medicine, pk=id)
 
-        if shopId.user == request.user:
-            args = {}
-            return render()
+        if shopId.user == request.user and med_ids is not None:
+            args = {
+                "shopId": shopId,
+                "med_ids": med_ids,
+            }
+            return render(request, "", args)
         else:
             return redirect()
 
@@ -333,14 +354,14 @@ class MedicineCategoryOperation(View):
                 "shopId": shopId,
                 "cats": cats,
             }
-            return render()
+            return render(request, "", args)
         else:
             return redirect("")
     
     def post(self, request, shop_id, cat_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
         catId = get_object_or_404(MedicineCategory, pk=cat_id)
-        if request.method == "POST":
+        if shopId.user == request.user and request.method == "POST":
             catId.delete()
             return redirect(f"")
 
@@ -355,7 +376,7 @@ class MedicineCategoryCreateView(View):
                 "shopId": shopId,
                 "cats": cats,
             }
-            return render()
+            return render(request, "", args)
         else:
             return redirect("")
 
@@ -386,8 +407,10 @@ class MedicineCategoryUpdateView(View):
         shopId = get_object_or_404(Shop, pk=shop_id)
         catId = get_object_or_404(MedicineCategory, pk=cat_id)
         if shopId.user == request.user:
-            args = {}
-            return render()
+            args = {
+                "catId": catId,
+            }
+            return render(request, "", args)
         else:
             return redirect(f"")
 
@@ -439,9 +462,9 @@ class MedicineBrandCreateView(View):
         shopId = get_object_or_404(Shop, pk=shop_id)
         if shopId.user == request.user:
             args = {}
-            return render()
+            return render(request, "", args)
         else:
-            return None
+            return redirect("warning")
 
     def post(self, request, shop_id, *args, **kwargs):
         shopId = get_object_or_404(Shop, pk=shop_id)
@@ -465,9 +488,12 @@ class MedicineBrandUpdateView(View):
     def get(self, request, shop_id, brand_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
         brandId = get_object_or_404(MedicineBrand, pk=brand_id)
-        if shopId.user == request.user:
-            args = {}
-            return render()
+        if shopId.user == request.user and brandId is not None:
+            args = {
+                "brandId": brandId,
+                "shopId": shopId,
+            }
+            return render(request, "", args)
         else:
             return None
 
@@ -499,7 +525,10 @@ class MedicineVendorView(View):
             vendors = Vendor.objects.filter(
                 shop=shopId.id
             )
-            args = {}
+            args = {
+                "vendors": vendors,
+                "shopId": shopId,
+            }
             return render(request, "", args)
         else:
             return redirect("")
@@ -508,9 +537,9 @@ class MedicineVendorView(View):
     def post(self, request, shop_id, vendor_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
         vendorId = get_object_or_404(Vendor, pk=vendor_id)
-        if request.method == "POST":
+        msg = None
+        if shopId.user == request.user and request.method == "POST":
             vendorId.delete()
-
             return redirect(f"")
 
 
@@ -525,6 +554,7 @@ class MedicineCreateView(View):
             args = {
                 "shopId": shopId,
                 "vendors": vendors,
+                "msg": msg,
             }
             return render(request, "", args)
         else:
@@ -591,7 +621,7 @@ class MedicineVendorUpdateView(View):
 
         if shopId.user == request.user:
             args = {}
-            return render()
+            return render(request, "", args)
         else:
             return render("warning")
     

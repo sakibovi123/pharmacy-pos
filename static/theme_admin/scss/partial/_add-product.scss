@@ -1,0 +1,34 @@
+
+.tab-content.lang-content > .active{
+ border: 1px solid;
+ border-color: var(--artical-background-element);
+ padding: 15px;
+}
+.categories-select{
+
+    border-color: var(--artical-background-element);
+}
+.addproduct-main{
+    .form-control{
+        height: 36px !important;
+        border-color: var(--artical-background-element);
+    }
+    .select2-container--default .select2-selection--single .select2-selection__arrow{
+            top:18% !important;
+    }
+ 
+    .custom-file-input:lang(en) ~ .custom-file-label::after{
+        content: 'Upload Image';
+    }
+}
+.select2-container--default .select2-selection--single{
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    border-color: var(--artical-background-element) !important;
+}
+.ms-choice{
+    height: calc(1.5em + 0.75rem + 2px) !important;
+    border-color: var(--artical-background-element) !important;
+    line-height: 30px !important;
+}

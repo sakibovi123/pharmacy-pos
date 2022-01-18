@@ -172,6 +172,10 @@ class MedicineCartItems(models.Model):
 
 
 class MedicineCheckout(models.Model):
+    STATUS_CHOICE = (
+        ("PROCESSING", "PROCESSING"),
+        ("DONE", "DONE")
+    )
     created_at = models.DateField(default=date.today)
     customer_name = models.CharField(max_length=255)
     customer_phone = models.CharField(max_length=255)
@@ -182,6 +186,9 @@ class MedicineCheckout(models.Model):
     change = models.DecimalField(decimal_places=2, max_digits=10, default=0.00)
     total = models.DecimalField(decimal_places=2, max_digits=10, default=0.00)
     shop = models.ForeignKey(Shop, on_delete=models.SET_NULL, null=True)
+    is_paid = models.BooleanField(default=False)
+
+    status = models.CharField(max_length=255, null=True, blank=True, choices=STATUS_CHOICE)
 
     class Meta:
         ordering = ["-id"]
@@ -203,6 +210,20 @@ class DailySellingSession(models.Model):
 
     def __str__(self):
         return str(self.created_at)
+
+
+class NotificationModel(models.Model):
+    created_date = models.DateField(default=date.today)
+    created_at = models.DateTimeField(default=datetime.now)
+    shop = models.ForeignKey(Shop, on_delete=models.DO_NOTHING, null=True)
+    content = models.TextField()
+    is_seen = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ["-id"]
+    
+    def __str__(self):
+        return self.content
 
 
 

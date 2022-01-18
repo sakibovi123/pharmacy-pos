@@ -1,0 +1,42 @@
+
+// Required
+@import "../../../../node_modules/bootstrap/scss/functions";
+// Custom Variables
+@import "private/variables";
+// Optional
+@import "../../../../node_modules/bootstrap/scss/bootstrap";
+
+// Fontawesome icons
+@import "../../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "../../../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "../../../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+
+
+@import "private/base";
+@import "layout/header-mobile/header-mobile";
+@import "layout/aside/aside";
+@import "layout/header-primary/header-primary";
+@import "layout/header-primary/header-pos";
+@import "layout/footer-primary/footer-primary";
+@import "layout/subheader/subheader";
+@import "layout/offcanvas/offcanvas";
+
+@import "global/layout";
+@import "global/buttons";
+
+@import "partial/wrapper";
+@import "partial/innerpages-changing";
+@import "partial/add-product";
+@import "partial/switcher";
+@import "partial/radio-checkbox";
+@import "partial/media-img";
+@import "partial/pos";
+@import "partial/draganddrop";
+
+@import "private/rtl";
+
+
+
+@import "slick/slick-theme";
+@import "slick/slick"
+ 

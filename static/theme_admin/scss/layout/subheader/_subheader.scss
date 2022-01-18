@@ -1,0 +1,27 @@
+.header-fixed.subheader-enabled .header {
+    box-shadow: none;
+}
+
+.header-fixed.subheader-enabled .subheader {
+    position: fixed;
+    height: 44px;
+    top: 64px;
+    right: 0;
+    transition: all 0.2s ease-out;
+    z-index: 95;
+    -webkit-box-shadow: 8px 10px 10px 0px rgba(82, 63, 105, 0.02);
+    box-shadow: 8px 10px 10px 0px rgba(82, 63, 105, 0.02);
+    background-color: var(--artical-background-panel);
+    border-top: 1px solid var(--artical-color-border);
+    margin: 0;
+    margin-top: 1px;
+    width: 100%;
+}
+
+
+@media (max-width: 991.98px){
+    .header-fixed.subheader-enabled .subheader {
+        top:54px;
+        
+    }
+}

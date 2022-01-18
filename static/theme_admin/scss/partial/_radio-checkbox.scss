@@ -1,0 +1,87 @@
+
+.custom-control-label::after{
+  left: -1.52rem;
+}
+input[type=checkbox].bg-primary+.custom-control-label:before, input[type=radio].bg-primary+.custom-control-label:before{
+  background-color: var(--artical-background-primary);
+  border-color: var(--artical-background-primary);
+  box-shadow: none;
+}
+input[type=checkbox].bg-secondary+.custom-control-label:before, input[type=radio].bg-secondary+.custom-control-label:before{
+  background-color: var(--artical-background-secondary);
+  border-color: var(--artical-background-secondary);
+  box-shadow: none;
+}
+input[type=checkbox].bg-success+.custom-control-label:before, input[type=radio].bg-success+.custom-control-label:before{
+  background-color: $success;
+  border-color: $success;
+  box-shadow: none;
+}
+input[type=checkbox].bg-danger+.custom-control-label:before, input[type=radio].bg-danger+.custom-control-label:before{
+  background-color: $danger;
+  border-color: $danger;
+  box-shadow: none;
+}
+input[type=checkbox].bg-info+.custom-control-label:before, input[type=radio].bg-info+.custom-control-label:before{
+  background-color: $info;
+  border-color: $info;
+  box-shadow: none;
+}
+input[type=checkbox].bg-warning+.custom-control-label:before, input[type=radio].bg-warning+.custom-control-label:before{
+  background-color: $warning;
+  border-color: $warning;
+  box-shadow: none;
+}
+
+//glow
+
+input[type=checkbox].bg-primary.radio-glow:checked+.custom-control-label:before, input[type=radio].bg-primary.radio-glow:checked+.custom-control-label:before{
+  box-shadow: 0 0 6px 0 rgba($primary,.7);
+}
+input[type=checkbox].bg-secondary.radio-glow:checked+.custom-control-label:before, input[type=radio].bg-secondary.radio-glow:checked+.custom-control-label:before{
+  box-shadow: 0 0 6px 0 rgba($secondary,.7);
+}
+input[type=checkbox].bg-success.radio-glow:checked+.custom-control-label:before, input[type=radio].bg-success.radio-glow:checked+.custom-control-label:before{
+  box-shadow: 0 0 6px 0 rgba($success,.7);
+}
+input[type=checkbox].bg-danger.radio-glow:checked+.custom-control-label:before, input[type=radio].bg-danger.radio-glow:checked+.custom-control-label:before{
+  box-shadow: 0 0 6px 0 rgba($danger,.7);
+}
+input[type=checkbox].bg-info.radio-glow:checked+.custom-control-label:before, input[type=radio].bg-info.radio-glow:checked+.custom-control-label:before{
+  box-shadow: 0 0 6px 0 rgba($info,.7);
+}
+input[type=checkbox].bg-warning.radio-glow:checked+.custom-control-label:before, input[type=radio].bg-warning.radio-glow:checked+.custom-control-label:before{
+  box-shadow: 0 0 6px 0 rgba($warning,.7);
+}
+
+//oncheck bg color
+input[type=checkbox].radio-primary:checked+.custom-control-label:before, input[type=radio].radio-primary:checked+.custom-control-label:before{
+  background-color: $primary;
+  border-color: $primary;
+  box-shadow: none;
+}
+input[type=checkbox].radio-secondary:checked+.custom-control-label:before, input[type=radio].radio-secondary:checked+.custom-control-label:before{
+  background-color: $secondary;
+  border-color: $secondary;
+  box-shadow: none;
+}
+input[type=checkbox].radio-success:checked+.custom-control-label:before, input[type=radio].radio-success:checked+.custom-control-label:before{
+  background-color: $success;
+  border-color: $success;
+  box-shadow: none;
+}
+input[type=checkbox].radio-danger:checked+.custom-control-label:before, input[type=radio].radio-danger:checked+.custom-control-label:before{
+  background-color: $danger;
+  border-color: $danger;
+  box-shadow: none;
+}
+input[type=checkbox].radio-info:checked+.custom-control-label:before, input[type=radio].radio-info:checked+.custom-control-label:before{
+  background-color: $info;
+  border-color: $info;
+  box-shadow: none;
+}
+input[type=checkbox].radio-warning:checked+.custom-control-label:before, input[type=radio].radio-warning:checked+.custom-control-label:before{
+  background-color: $warning;
+  border-color: $warning;
+  box-shadow: none;
+}
