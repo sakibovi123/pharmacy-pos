@@ -4,6 +4,7 @@ from .models import *
 from django.views import View
 from datetime import datetime, date, timedelta
 from django.db.models import Sum, Avg
+from django.db.models import Q
 
 # Here we will get pharma homepage
 # Cart functions
@@ -11,6 +12,7 @@ from django.db.models import Sum, Avg
 
 
 class PharmaHome(View):
+    template_name = "homeView/home.html"
     def get(self, request, shop_id, *args, **kwargs):
         shop_id = get_object_or_404(Shop, pk=shop_id)
         if shop_id.user == request.user:
@@ -38,7 +40,7 @@ class PharmaHome(View):
                 "med_cart_products": med_cart_products,
                 "shop_id": shop_id,
             }
-            return render(request, "homeView/home.html", args)
+            return render(request, self.template_name, args)
         else:
             return redirect("warning")
 
@@ -76,6 +78,7 @@ class PharmaHome(View):
 
 
 class PharmaCartView(View):
+    template_name = ""
     def get(self, request, shop_id, *args, **kwargs):
         shop_id = get_object_or_404(Shop, pk=shop_id)
         if shop_id.user == request.user:
@@ -93,7 +96,7 @@ class PharmaCartView(View):
                 "shop_id": shop_id,
                 "cart_products": cart_products,
             }
-            return render(self.request, "", args)
+            return render(self.request, self.template_name, args)
         else:
             # return redirect("warning")
             return HttpResponse("You are not the owner of this shop")
@@ -137,8 +140,10 @@ def checkout(self, request, shop_id, *args, **kwargs):
                 items=item,
                 quantity=quantity
             )
+            # have to minus the amount of product after successfull checkout
             medicineCartItems.save()
-            MedicineCheckout.items.add(medicineCartItems)
+            med_checkout.items.add(medicineCartItems)
+            
 
         # if float(discount) > 0:
         #     grand_total = grand_total - (grand_total * Decimal(float(discount) / 100.0))
@@ -152,6 +157,7 @@ def checkout(self, request, shop_id, *args, **kwargs):
 # Here order details view and reciept will be shown
 # Print function included
 class PharmaReceiptView(View):
+    template_name = ""
     def get(self, request, id, shop_id, *args, **kwargs):
         shopId = get_object_or_404(Shop, pk=shop_id)
         order_details = get_object_or_404(MedicineCheckout, pk=id)
@@ -162,7 +168,7 @@ class PharmaReceiptView(View):
                 "order_details": order_details,
                 "shopId": shopId
             }
-            return render()
+            return render(request, self.template_name, args)
         else:
             # return redirect()
             return HttpResponse("You are not the owner of this shop")
@@ -179,6 +185,7 @@ deleting
 """
 
 class PharmaAdminView(View):
+    template_name = "Test/index.html"
     def get(self, request, shop_id, *args, **kwargs):
         shopId = get_object_or_404(Shop, pk=shop_id)
         shopTitle = shopId.shop_name
@@ -196,6 +203,15 @@ class PharmaAdminView(View):
 
             print("date date " + str(today_date))
 
+            # Filtering functionalities
+            date_wise_orders = None
+            if request.method == "POST":
+                from_date = request.POST.get("from_date")
+                to_date = request.POST.get("to_date")
+
+                date_wise_orders = MedicineCheckout.objects.filter(
+                    Q(created_at__exact=from_date)&Q(created_at__exact=to_date)
+                )
             
 
 
@@ -206,9 +222,10 @@ class PharmaAdminView(View):
                 "shopTitle": shopTitle,
                 "orders": orders,
                 "nots": nots,
+                "date_wise_orders": date_wise_orders,
             }
             # return render(request, "adminpanel/index.html", args)
-            return render(request, "Test/index.html", args)
+            return render(request, self.template_name, args)
         else:
             return redirect("warning")
 
@@ -238,6 +255,7 @@ def open_selling(request, shop_id):
 # put
 # Delete
 class MedicineOperation(View):
+    template_name = "Test/Medicine/medicines.html"
     def get(self, request, shop_id, *args, **kwargs):
         shopId = get_object_or_404(Shop, pk=shop_id)
         if shopId.user == request.user:
@@ -247,7 +265,7 @@ class MedicineOperation(View):
             args = {
                 "medicines": medicines
             }
-            return render(request, "", args)
+            return render(request, self.template_name, args)
         else:
             return redirect("warning")
 
@@ -260,13 +278,14 @@ class MedicineOperation(View):
 
 
 class MedicineCreateView(View):
+    template_name = "Test/Medicine/create-medicine.html"
     def get(self, request, shop_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
         if shopId.user == request.user:
             args = {
                 "shopId": shopId,
             }
-            return render(request, "", args)
+            return render(request, self.template_name, args)
         else:
             return redirect("")
 
@@ -305,16 +324,17 @@ class MedicineCreateView(View):
 
 
 class MedicineUpdateView(View):
+    template_name = "Test/Medicine/update-medicine.html"
     def get(self, request, shop_id, med_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
-        med_ids = get_object_or_404(Medicine, pk=id)
+        med_ids = get_object_or_404(Medicine, pk=med_id)
 
         if shopId.user == request.user and med_ids is not None:
             args = {
                 "shopId": shopId,
                 "med_ids": med_ids,
             }
-            return render(request, "", args)
+            return render(request, self.template_name, args)
         else:
             return redirect()
 
@@ -344,6 +364,7 @@ class MedicineUpdateView(View):
 # Medicine Category Get, Insert, put, Delete
 
 class MedicineCategoryOperation(View):
+    template_name = "Test/Category/category.html"
     def get(self, request, shop_id, *args, **kwargs):
         shopId = get_object_or_404(Shop, pk=shop_id)
         if shopId.user == request.user:
@@ -354,7 +375,7 @@ class MedicineCategoryOperation(View):
                 "shopId": shopId,
                 "cats": cats,
             }
-            return render(request, "", args)
+            return render(request, self.template_name, args)
         else:
             return redirect("")
     
@@ -365,7 +386,10 @@ class MedicineCategoryOperation(View):
             catId.delete()
             return redirect(f"")
 
+
+
 class MedicineCategoryCreateView(View):
+    template_name = "Test/Category/create-category.html"
     def get(self, request, shop_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
         if shopId.user == request.user:
@@ -376,7 +400,7 @@ class MedicineCategoryCreateView(View):
                 "shopId": shopId,
                 "cats": cats,
             }
-            return render(request, "", args)
+            return render(request, self.template_name, args)
         else:
             return redirect("")
 
@@ -403,6 +427,7 @@ class MedicineCategoryCreateView(View):
 
 
 class MedicineCategoryUpdateView(View):
+    template_name = "Test/Category/update-category.html"
     def get(self, request, shop_id, cat_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
         catId = get_object_or_404(MedicineCategory, pk=cat_id)
@@ -410,7 +435,7 @@ class MedicineCategoryUpdateView(View):
             args = {
                 "catId": catId,
             }
-            return render(request, "", args)
+            return render(request, self.template_name, args)
         else:
             return redirect(f"")
 
@@ -432,6 +457,7 @@ class MedicineCategoryUpdateView(View):
 Medicine Brand Get, Insert, put, Delete
 """ 
 class MedicineBrandOperation(View):
+    template_name = "Test/Brand/brands.html"
     def get(self, request, shop_id, *args, **kwargs):
         shopId = get_object_or_404(Shop, pk=shop_id)
         if shopId.user == request.user:
@@ -442,7 +468,7 @@ class MedicineBrandOperation(View):
                 "shopId": shopId,
                 "med_brands": med_brands,
             }
-            return render(request, "", args)
+            return render(request, self.template_name, args)
         else:
             return redirect("")
 
@@ -458,11 +484,12 @@ class MedicineBrandOperation(View):
 
 
 class MedicineBrandCreateView(View):
+    template_name = "Test/Brand/create-brand.html"
     def get(self, request, shop_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
         if shopId.user == request.user:
             args = {}
-            return render(request, "", args)
+            return render(request, self.template_name, args)
         else:
             return redirect("warning")
 
@@ -485,6 +512,7 @@ class MedicineBrandCreateView(View):
 
 
 class MedicineBrandUpdateView(View):
+    template_name = "Test/Brand/update-brand.html"
     def get(self, request, shop_id, brand_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
         brandId = get_object_or_404(MedicineBrand, pk=brand_id)
@@ -493,7 +521,7 @@ class MedicineBrandUpdateView(View):
                 "brandId": brandId,
                 "shopId": shopId,
             }
-            return render(request, "", args)
+            return render(request, self.template_name, args)
         else:
             return None
 
@@ -519,6 +547,7 @@ medicine vendor operation
 
 
 class MedicineVendorView(View):
+    tempalte_name = "Test/Vendor/vendors.html"
     def get(self, request, shop_id, *args, **kwargs):
         shopId = get_object_or_404(Shop, pk=shop_id)
         if shopId.user == request.user:
@@ -529,7 +558,7 @@ class MedicineVendorView(View):
                 "vendors": vendors,
                 "shopId": shopId,
             }
-            return render(request, "", args)
+            return render(request, self.template_name, args)
         else:
             return redirect("")
 
@@ -544,6 +573,7 @@ class MedicineVendorView(View):
 
 
 class MedicineCreateView(View):
+    template_name = "Test/Venodr/create-vendor.html"
     def get(self, request, shop_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
         msg = None
@@ -556,7 +586,7 @@ class MedicineCreateView(View):
                 "vendors": vendors,
                 "msg": msg,
             }
-            return render(request, "", args)
+            return render(request, self.template_name, args)
         else:
             return redirect("warning")
 
@@ -615,13 +645,16 @@ class MedicineCreateView(View):
 
 
 class MedicineVendorUpdateView(View):
+    template_name = "Test/Vendor/update-vendor.html"
     def get(self, request, shop_id, vendor_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
         vendorId = get_object_or_404(Vendor, pk=vendor_id)
 
         if shopId.user == request.user:
-            args = {}
-            return render(request, "", args)
+            args = {
+                "vendorId": vendorId,
+            }
+            return render(request, self.template_name, args)
         else:
             return render("warning")
     
@@ -648,18 +681,49 @@ class MedicineVendorUpdateView(View):
             return redirect(f"")
 
 
+class OrdersView(View):
+    template_name = "Test/Order/orders.html"
+
+    def get(self, request, shop_id, *args, **kwargs):
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        if shopId.user == request.user:
+            orders = MedicineCheckout.objects.filter(shop=shopId.id)
+            args = {
+                "orders": orders,
+            }
+            return render(request, self.template_name, args)
+        else:
+            return redirect("warning")
+
+
+class OrderDetailsView(View):
+    template_name = "Test/Order/order_details.html"
+
+    def get(self, request, shop_id, order_id, *args, **kwargs):
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        orderId = None
+        if shopId.user == request.user:
+            orderId = get_object_or_404(MedicineCheckout, pk=order_id)
+            args = {
+                "shopId": shopId,
+                "orderId": orderId,
+            }
+            return render(request, self.template_name, args)
+        else:
+            return redirect("warning")
+
 
 """
 Exception Views
 """
 
 class SuccessView(View):
+    success_template = "exceptions/success.html"
     def get(self, request):
-        args = {}
-        return render(request, "exceptions/success.html", args)
+        return render(request, self.success_template)
 
 
 class WarningView(View):
+    warning_template = "exceptions/warning.html"
     def get(self, request):
-        args = {}
-        return render(request, "exceptions/warning.html", args)
+        return render(request, self.warning_template)

@@ -1,0 +1,3030 @@
+{% load static %}
+<body id="tc_body" class="header-fixed header-mobile-fixed subheader-enabled aside-enabled aside-fixed">
+    <!-- Paste this code after body tag -->
+	<div class="se-pre-con">
+		<div class="pre-loader">
+		  <img class="img-fluid" src="./assets/images/loadergif.gif" alt="loading">
+		</div>
+	  </div>
+	<!--begin::Header Mobile-->
+	<div id="tc_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
+		<!--begin::Logo-->
+		<a href="index.html" class="brand-logo">
+
+			<span class="brand-text"><img style="height: 25px;" alt="Logo" src="assets/images/misc/logo.png" /></span>
+
+		</a>
+		<!--end::Logo-->
+		<!--begin::Toolbar-->
+		<div class="d-flex align-items-center">
+
+			 <div class="posicon">
+				<a href="pos.html" class="btn btn-primary d-flex align-items-center justify-content-center white mr-2">POS</a>
+			</div>
+			<button class="btn p-0" id="tc_aside_mobile_toggle">
+				<svg width="20px" height="20px" viewBox="0 0 16 16" class="bi bi-justify-right" fill="currentColor"
+					xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd"
+						d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+				</svg>
+			</button>
+
+			<button class="btn p-0 ml-2" id="tc_header_mobile_topbar_toggle">
+				<span class="svg-icon svg-icon-xl">
+
+					<svg width="20px" height="20px" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor"
+						xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd"
+							d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+					</svg>
+
+				</span>
+			</button>
+
+		</div>
+		<!--end::Toolbar-->
+	</div>
+	<!--end::Header Mobile-->
+	<!--begin::Main-->
+	<div class="d-flex flex-column flex-root">
+		<!--begin::Page-->
+		<div class="d-flex flex-row flex-column-fluid page">
+			<!--begin::Aside-->
+	{% include 'Test/sidebar.html' %}
+			<div class="aside-overlay"></div>
+			<!--end::Aside-->
+			<!--begin::Wrapper-->
+			<div class="d-flex flex-column flex-row-fluid wrapper" id="tc_wrapper">
+				<!--begin::Header-->
+			{% include 'Test/nav.html' %}
+				<!--end::Header-->
+				<!--begin::Content-->
+				<div class="content d-flex flex-column flex-column-fluid" id="tc_content">
+					<!--begin::Subheader-->
+					<div class="subheader py-2 py-lg-6 subheader-solid">
+						<div class="container-fluid">
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb bg-white mb-0 px-0 py-2">
+									<li class="breadcrumb-item" aria-current="page"><a href="index.html">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Roles & Permisssions</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+					<!--end::Subheader-->
+					<!--begin::Entry-->
+					<div class="d-flex flex-column-fluid">
+						<!--begin::Container-->
+						<div class="container-fluid ">
+						
+							<div class="row">
+								<div class="col-lg-12 col-xl-12">
+									<div class="card card-custom gutter-b bg-transparent shadow-none border-0" >
+										<div class="card-header align-items-center   border-bottom-dark px-0">
+											<div class="card-title mb-0">
+												<h3 class="card-label mb-0 font-weight-bold text-body">Add Roles & Permisssions
+												</h3>
+											</div>
+											<div class="icons d-flex">
+										
+												<a href="#" >
+													<span class="icon h-30px font-size-h5 w-30px d-flex align-items-center justify-content-center rounded-circle ">
+														<svg width="15px" height="15px" viewBox="0 0 16 16" class="bi bi-printer-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+															<path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5z"/>
+															<path fill-rule="evenodd" d="M11 9H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z"/>
+															<path fill-rule="evenodd" d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+														  </svg>
+													</span>
+												
+												</a>
+												<a href="#" class="ml-2" >
+													<span class="icon  h-30px font-size-h5 w-30px d-flex align-items-center justify-content-center rounded-circle ">
+														<svg width="15px" height="15px" viewBox="0 0 16 16" class="bi bi-file-earmark-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+															<path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm7 2l.5-2.5 3 3L10 5a1 1 0 0 1-1-1zM4.5 8a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/>
+														  </svg>
+													</span>
+												
+												</a>
+											
+											</div>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12 col-xl-12">
+									<div class="card card-custom gutter-b bg-white border-0">
+										<div class="card-header border-0 align-items-center">
+											<h3 class="card-label mb-0 font-weight-bold text-body">Role
+											</h3>
+										</div>
+										<div class="card-body">
+											<form>
+												<div class="form-group row">
+													<div class="col-md-12">
+														<label >Enter Role Name</label>
+														<fieldset class="form-group mb-3">
+															<input type="text" id="type-max" value="Manager" class="form-control round bg-transparent text-dark" placeholder="role name">
+														</fieldset>
+													</div>
+
+												</div>
+											</form>
+
+										</div>
+									
+									</div>
+								</div>
+								<div class="col-12 col-md-3">
+									<div class="card card-custom gutter-b bg-white border-0 roles-main" >
+										<div class="card-body">
+											<ul class="nav flex-column nav-pills mb-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+												<li class="nav-item" >
+													<a class="nav-link active" id="dashboard-tab" data-toggle="pill" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="true">Dashboard</a>
+												</li>
+												<li class="nav-item" >
+													<a class="nav-link" id="mediaa-tab" data-toggle="pill" href="#mediaa" role="tab" aria-controls="mediaa" aria-selected="false">Media</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prunit-tab" data-toggle="pill" href="#prunit" role="tab" aria-controls="prunit" aria-selected="false">Product Units		
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prVariation-tab" data-toggle="pill" href="#prVariation" role="tab" aria-controls="prVariation" aria-selected="false">Product Variation
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prBrands-tab" data-toggle="pill" href="#prBrands" role="tab" aria-controls="prBrands" aria-selected="false">Product Brands
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prCategory-tab" data-toggle="pill" href="#prCategory" role="tab" aria-controls="prCategory" aria-selected="false">Product Category
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prReviews-tab" data-toggle="pill" href="#prReviews" role="tab" aria-controls="prReviews" aria-selected="false">Product Reviews
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prBarcode-tab" data-toggle="pill" href="#prBarcode" role="tab" aria-controls="prBarcode" aria-selected="false">Product Barcode
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prProduct-tab" data-toggle="pill" href="#prProduct" role="tab" aria-controls="prProduct" aria-selected="false">Product Product
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prStock-tab" data-toggle="pill" href="#prStock" role="tab" aria-controls="prStock" aria-selected="false">Product Stock
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prStockt-tab" data-toggle="pill" href="#prStockt" role="tab" aria-controls="prStockt" aria-selected="false">Product Stockt Transfer
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prPurchase-tab" data-toggle="pill" href="#prPurchase" role="tab" aria-controls="prPurchase" aria-selected="false">Product Purchase
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prOrders-tab" data-toggle="pill" href="#prOrders" role="tab" aria-controls="prOrders" aria-selected="false">Product Orders
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prSale-tab" data-toggle="pill" href="#prSale" role="tab" aria-controls="prSale" aria-selected="false">Product Sale
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prQuotations-tab" data-toggle="pill" href="#prQuotations" role="tab" aria-controls="prQuotations" aria-selected="false">Quotations
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prSalereturn-tab" data-toggle="pill" href="#prSalereturn" role="tab" aria-controls="prSalereturn" aria-selected="false">Product Sale Return
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prPurchasereturn-tab" data-toggle="pill" href="#prPurchasereturn" role="tab" aria-controls="prPurchasereturn" aria-selected="false">Product Purchase Return
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prAdmin-tab" data-toggle="pill" href="#prAdmin" role="tab" aria-controls="prAdmin" aria-selected="false">Admins
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prBiller-tab" data-toggle="pill" href="#prBiller" role="tab" aria-controls="prBiller" aria-selected="false">Biller
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prSupplier-tab" data-toggle="pill" href="#prSupplier" role="tab" aria-controls="prSupplier" aria-selected="false">Supplier
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prCustomer-tab" data-toggle="pill" href="#prCustomer" role="tab" aria-controls="prCustomer" aria-selected="false">Customer
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prAccounts-tab" data-toggle="pill" href="#prAccounts" role="tab" aria-controls="prAccounts" aria-selected="false">Accounts
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prBalance-tab" data-toggle="pill" href="#prBalance" role="tab" aria-controls="prBalance" aria-selected="false">Balance Sheet
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prtrial-tab" data-toggle="pill" href="#prtrial" role="tab" aria-controls="prtrial" aria-selected="false">Trial Sheet
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prcashflow-tab" data-toggle="pill" href="#prcashflow" role="tab" aria-controls="prcashflow" aria-selected="false">Cash Flow
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prPaymentreport-tab" data-toggle="pill" href="#prPaymentreport" role="tab" aria-controls="prPaymentreport" aria-selected="false">Payment Account Report
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prExpenses-tab" data-toggle="pill" href="#prExpenses" role="tab" aria-controls="prExpenses" aria-selected="false">Expenses
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prExpensest-tab" data-toggle="pill" href="#prExpensest" role="tab" aria-controls="prExpenses" aria-selected="false">Expenses Type
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prprofitLossReport-tab" data-toggle="pill" href="#prprofitLossReport" role="tab" aria-controls="prprofitLossReport" aria-selected="false">Profit/Loss Report
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prPurchaseReport-tab" data-toggle="pill" href="#prPurchaseReport" role="tab" aria-controls="prPurchaseReport" aria-selected="false">Purchase Report
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prSaleReport-tab" data-toggle="pill" href="#prSaleReport" role="tab" aria-controls="prSaleReport" aria-selected="false">Sale Report
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prSupplierReport-tab" data-toggle="pill" href="#prSupplierReport" role="tab" aria-controls="prSupplierReport" aria-selected="false">Supplier Report
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prCustomerReport-tab" data-toggle="pill" href="#prCustomerReport" role="tab" aria-controls="prCustomerReport" aria-selected="false">Customer Report
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prStockReport-tab" data-toggle="pill" href="#prStockReport" role="tab" aria-controls="prStockReport" aria-selected="false">Stock Report
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prStockAdReport-tab" data-toggle="pill" href="#prStockAdReport" role="tab" aria-controls="prStockAdReport" aria-selected="false">Stock Adjustment Report
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="proutStockAdReport-tab" data-toggle="pill" href="#proutStockAdReport" role="tab" aria-controls="proutStockAdReport" aria-selected="false">Out Of Stock Report 
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prStockALReport-tab" data-toggle="pill" href="#prStockALReport" role="tab" aria-controls="prStockALReport" aria-selected="false">Stock Alert Report
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prExpensesReport-tab" data-toggle="pill" href="#prExpensesReport" role="tab" aria-controls="prExpensesReport" aria-selected="false"> Expenses Report
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prBussinessSetting-tab" data-toggle="pill" href="#prBussinessSetting" role="tab" aria-controls="prBussinessSetting" aria-selected="false"> Bussiness Setting
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prWebSetting-tab" data-toggle="pill" href="#prWebSetting" role="tab" aria-controls="prWebSetting" aria-selected="false"> Website Setting
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prAppSetting-tab" data-toggle="pill" href="#prAppSetting" role="tab" aria-controls="prAppSetting" aria-selected="false"> Application Setting
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prLanguage-tab" data-toggle="pill" href="#prLanguage" role="tab" aria-controls="prLanguage" aria-selected="false"> Language 
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prCurrency-tab" data-toggle="pill" href="#prCurrency" role="tab" aria-controls="prCurrency" aria-selected="false"> Currency 
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prPaymentMethod-tab" data-toggle="pill" href="#prPaymentMethod" role="tab" aria-controls="prPaymentMethod" aria-selected="false"> Payment Method 
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prShippingMethod-tab" data-toggle="pill" href="#prShippingMethod" role="tab" aria-controls="prShippingMethod" aria-selected="false"> Payment Method 
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prTax-tab" data-toggle="pill" href="#prTax" role="tab" aria-controls="prTax" aria-selected="false"> Tax 
+													</a>
+												</li> 
+												<li class="nav-item" >
+													<a class="nav-link" id="prCoupons-tab" data-toggle="pill" href="#prCoupons" role="tab" aria-controls="prCoupons" aria-selected="false"> Coupons 
+													</a>
+												</li> 
+											</ul>
+										</div>
+									
+									</div>
+								</div>
+								<div class="col-12 col-md-9">
+									<div class="card card-custom gutter-b bg-white border-0 roles-main" >
+										<div class="card-body">
+										    <div class="tab-content" id="v-pills-tabContent">
+												<div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Dashboard</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customdashboard">
+																	<label class="custom-control-label mr-1" for="customdashboard">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														   <div class="permissionsallow0" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">View</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customView0">
+																		<label class="custom-control-label mr-1" for="customView0">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="mediaa" role="tabpanel" aria-labelledby="mediaa-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Media</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="custommedia">
+																	<label class="custom-control-label mr-1" for="custommedia">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow1" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd1">
+																		<label class="custom-control-label mr-1" for="customadd1">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate1">
+																		<label class="custom-control-label mr-1" for="customupdate1">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete1">
+																		<label class="custom-control-label mr-1" for="customdelete1">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>	
+												<div class="tab-pane fade" id="prunit" role="tabpanel" aria-labelledby="prunit-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Units</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customUnits">
+																	<label class="custom-control-label mr-1" for="customUnits">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow2" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd2">
+																		<label class="custom-control-label mr-1" for="customadd2">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate2">
+																		<label class="custom-control-label mr-1" for="customupdate2">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete2">
+																		<label class="custom-control-label mr-1" for="customdelete2">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>	
+												<div class="tab-pane fade" id="prVariation" role="tabpanel" aria-labelledby="prVariation-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Variation</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customVariation">
+																	<label class="custom-control-label mr-1" for="customVariation">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														   <div class="permissionsallow3" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd3">
+																		<label class="custom-control-label mr-1" for="customadd3">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate3">
+																		<label class="custom-control-label mr-1" for="customupdate3">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete3">
+																		<label class="custom-control-label mr-1" for="customdelete3">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>	
+												<div class="tab-pane fade" id="prBrands" role="tabpanel" aria-labelledby="prBrands-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Brands</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customBrands">
+																	<label class="custom-control-label mr-1" for="customBrands">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow4" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd4">
+																		<label class="custom-control-label mr-1" for="customadd4">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate4">
+																		<label class="custom-control-label mr-1" for="customupdate4">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete4">
+																		<label class="custom-control-label mr-1" for="customdelete4">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>	
+												<div class="tab-pane fade" id="prCategory" role="tabpanel" aria-labelledby="prCategory-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Category</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customCategory">
+																	<label class="custom-control-label mr-1" for="customCategory">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow5" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd5">
+																		<label class="custom-control-label mr-1" for="customadd5">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate5">
+																		<label class="custom-control-label mr-1" for="customupdate5">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete5">
+																		<label class="custom-control-label mr-1" for="customdelete5">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>	
+												<div class="tab-pane fade" id="prReviews" role="tabpanel" aria-labelledby="prReviews-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Reviews</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customReviews">
+																	<label class="custom-control-label mr-1" for="customReviews">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow6" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete6">
+																		<label class="custom-control-label mr-1" for="customdelete6">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prBarcode" role="tabpanel" aria-labelledby="prBarcode-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Barcode</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customBarcode1">
+																	<label class="custom-control-label mr-1" for="customBarcode1">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow7" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd7">
+																		<label class="custom-control-label mr-1" for="customadd7">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete7">
+																		<label class="custom-control-label mr-1" for="customdelete7">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prProduct" role="tabpanel" aria-labelledby="prProduct-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Product</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customProduct">
+																	<label class="custom-control-label mr-1" for="customProduct">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow8" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd8">
+																		<label class="custom-control-label mr-1" for="customadd8">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate8">
+																		<label class="custom-control-label mr-1" for="customupdate8">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete8">
+																		<label class="custom-control-label mr-1" for="customdelete8">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prStock" role="tabpanel" aria-labelledby="prStock-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Stock </h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customStockb">
+																	<label class="custom-control-label mr-1" for="customStockb">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow9" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd9">
+																		<label class="custom-control-label mr-1" for="customadd9">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate9">
+																		<label class="custom-control-label mr-1" for="customupdate9">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete9">
+																		<label class="custom-control-label mr-1" for="customdelete9">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prStockt" role="tabpanel" aria-labelledby="prStockt-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Stock Transfer</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customStockt">
+																	<label class="custom-control-label mr-1" for="customStockt">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow10" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd11">
+																		<label class="custom-control-label mr-1" for="customadd11">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate11">
+																		<label class="custom-control-label mr-1" for="customupdate11">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete11">
+																		<label class="custom-control-label mr-1" for="customdelete11">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prPurchase" role="tabpanel" aria-labelledby="prPurchase-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Purchase</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customPurchaseb">
+																	<label class="custom-control-label mr-1" for="customPurchaseb">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow11" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd12">
+																		<label class="custom-control-label mr-1" for="customadd12">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate12">
+																		<label class="custom-control-label mr-1" for="customupdate12">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete12">
+																		<label class="custom-control-label mr-1" for="customdelete12">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prOrders" role="tabpanel" aria-labelledby="prOrders-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Orders</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customOrders">
+																	<label class="custom-control-label mr-1" for="customOrders">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow12" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">View</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate13">
+																		<label class="custom-control-label mr-1" for="customupdate13">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete13">
+																		<label class="custom-control-label mr-1" for="customdelete13">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prSale" role="tabpanel" aria-labelledby="prSale-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Sale																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customSale">
+																	<label class="custom-control-label mr-1" for="customSale">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow13" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate14">
+																		<label class="custom-control-label mr-1" for="customupdate14">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete14">
+																		<label class="custom-control-label mr-1" for="customdelete14">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prQuotations" role="tabpanel" aria-labelledby="prQuotations-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Quotations</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customQuotations">
+																	<label class="custom-control-label mr-1" for="customQuotations">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow14" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd15">
+																		<label class="custom-control-label mr-1" for="customadd15">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate15">
+																		<label class="custom-control-label mr-1" for="customupdate15">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete15">
+																		<label class="custom-control-label mr-1" for="customdelete15">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prSalereturn" role="tabpanel" aria-labelledby="prSalereturn-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Sale Return</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customSalert11">
+																	<label class="custom-control-label mr-1" for="customSalert11">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow15" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">View</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customview16">
+																		<label class="custom-control-label mr-1" for="customview16">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd16">
+																		<label class="custom-control-label mr-1" for="customadd16">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate16">
+																		<label class="custom-control-label mr-1" for="customupdate16">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete16">
+																		<label class="custom-control-label mr-1" for="customdelete16">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prPurchasereturn" role="tabpanel" aria-labelledby="prPurchasereturn-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Purchase Return</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customPurchasert">
+																	<label class="custom-control-label mr-1" for="customPurchasert">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow16" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">View</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customview17">
+																		<label class="custom-control-label mr-1" for="customview17">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd17">
+																		<label class="custom-control-label mr-1" for="customadd17">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate17">
+																		<label class="custom-control-label mr-1" for="customupdate17">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete17">
+																		<label class="custom-control-label mr-1" for="customdelete17">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prAdmin" role="tabpanel" aria-labelledby="prAdmin-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Admins</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customAdmins">
+																	<label class="custom-control-label mr-1" for="customAdmins">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow17" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd18">
+																		<label class="custom-control-label mr-1" for="customadd18">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate18">
+																		<label class="custom-control-label mr-1" for="customupdate18">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete18">
+																		<label class="custom-control-label mr-1" for="customdelete18">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prBiller" role="tabpanel" aria-labelledby="prBiller-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Biller																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customBiller">
+																	<label class="custom-control-label mr-1" for="customBiller">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow18" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd19">
+																		<label class="custom-control-label mr-1" for="customadd19">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate19">
+																		<label class="custom-control-label mr-1" for="customupdate19">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete19">
+																		<label class="custom-control-label mr-1" for="customdelete19">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prSupplier" role="tabpanel" aria-labelledby="prSupplier-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Supplier															</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customSupplier">
+																	<label class="custom-control-label mr-1" for="customSupplier">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow19" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd20">
+																		<label class="custom-control-label mr-1" for="customadd20">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate20">
+																		<label class="custom-control-label mr-1" for="customupdate20">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete20">
+																		<label class="custom-control-label mr-1" for="customdelete20">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prCustomer" role="tabpanel" aria-labelledby="prCustomer-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Customer															</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customCustomerb">
+																	<label class="custom-control-label mr-1" for="customCustomerb">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow20" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd21">
+																		<label class="custom-control-label mr-1" for="customadd21">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate21">
+																		<label class="custom-control-label mr-1" for="customupdate21">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete21">
+																		<label class="custom-control-label mr-1" for="customdelete21">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prAccounts" role="tabpanel" aria-labelledby="prAccounts-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Accounts															</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customAccounts">
+																	<label class="custom-control-label mr-1" for="customAccounts">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow21" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd22">
+																		<label class="custom-control-label mr-1" for="customadd22">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate22">
+																		<label class="custom-control-label mr-1" for="customupdate22">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete22">
+																		<label class="custom-control-label mr-1" for="customdelete22">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prBalance" role="tabpanel" aria-labelledby="prBalance-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Balance Sheet	 														</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customBalances">
+																	<label class="custom-control-label mr-1" for="customBalances">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow22" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">View</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customview23">
+																		<label class="custom-control-label mr-1" for="customview23">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+													
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prtrial" role="tabpanel" aria-labelledby="prtrial-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Trial Sheet					</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customTrial">
+																	<label class="custom-control-label mr-1" for="customTrial">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow23" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">View</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customview24">
+																		<label class="custom-control-label mr-1" for="customview24">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+													
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prcashflow" role="tabpanel" aria-labelledby="prcashflow-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Cash Flow					</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customCashf">
+																	<label class="custom-control-label mr-1" for="customCashf">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow24" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">View</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customview25">
+																		<label class="custom-control-label mr-1" for="customview25">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+													
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prPaymentreport" role="tabpanel" aria-labelledby="prPaymentreport-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Payment Account Report					</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customPaymentA">
+																	<label class="custom-control-label mr-1" for="customPaymentA">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  
+														   <div class="permissionsallow25" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">View</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customview26">
+																		<label class="custom-control-label mr-1" for="customview26">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+													
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prExpenses" role="tabpanel" aria-labelledby="prExpenses-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Expenses
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customExpenses">
+																	<label class="custom-control-label mr-1" for="customExpenses">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow26" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd27">
+																		<label class="custom-control-label mr-1" for="customadd27">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate27">
+																		<label class="custom-control-label mr-1" for="customupdate27">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete27">
+																		<label class="custom-control-label mr-1" for="customdelete27">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prExpensest" role="tabpanel" aria-labelledby="prExpensest-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Expenses Type
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customExpensest28">
+																	<label class="custom-control-label mr-1" for="customExpensest28">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow27" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd28">
+																		<label class="custom-control-label mr-1" for="customadd28">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate28">
+																		<label class="custom-control-label mr-1" for="customupdate28">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete28">
+																		<label class="custom-control-label mr-1" for="customdelete28">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prprofitLossReport" role="tabpanel" aria-labelledby="prprofitLossReport-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Profit / Loss Report
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customProfit">
+																	<label class="custom-control-label mr-1" for="customProfit">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow28" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">View</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customview29">
+																		<label class="custom-control-label mr-1" for="customview29">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prPurchaseReport" role="tabpanel" aria-labelledby="prPurchaseReport-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Purchase Report
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customPurchaser">
+																	<label class="custom-control-label mr-1" for="customPurchaser">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow29" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">View</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customview30">
+																		<label class="custom-control-label mr-1" for="customview30">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prSaleReport" role="tabpanel" aria-labelledby="prSaleReport-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Sale Report
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customSaleR">
+																	<label class="custom-control-label mr-1" for="customSaleR">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow30" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">View</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customview31">
+																		<label class="custom-control-label mr-1" for="customview31">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prSupplierReport" role="tabpanel" aria-labelledby="prSupplierReport-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Supplier Report
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customSupplierR">
+																	<label class="custom-control-label mr-1" for="customSupplierR">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow31" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">View</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customview32">
+																		<label class="custom-control-label mr-1" for="customview32">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prCustomerReport" role="tabpanel" aria-labelledby="prCustomerReport-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Customer Report
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customCustomerR">
+																	<label class="custom-control-label mr-1" for="customCustomerR">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow32" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">View</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customview33">
+																		<label class="custom-control-label mr-1" for="customview33">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prStockReport" role="tabpanel" aria-labelledby="prStockReport-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Stock Report
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customStockR">
+																	<label class="custom-control-label mr-1" for="customStockR">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow33" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">View</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customview34">
+																		<label class="custom-control-label mr-1" for="customview34">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prStockAdReport" role="tabpanel" aria-labelledby="prStockAdReport-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Stock Adjustment Report
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customAdjustmentR">
+																	<label class="custom-control-label mr-1" for="customAdjustmentR">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow34" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">View</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customview35">
+																		<label class="custom-control-label mr-1" for="customview35">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="proutStockAdReport" role="tabpanel" aria-labelledby="proutStockAdReport-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Out of Stock Report
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customOUTStock">
+																	<label class="custom-control-label mr-1" for="customOUTStock">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow35" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">View</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customview36">
+																		<label class="custom-control-label mr-1" for="customview36">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prStockALReport" role="tabpanel" aria-labelledby="prStockALReport-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Stock Alert Report
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customStockALERT">
+																	<label class="custom-control-label mr-1" for="customStockALERT">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow36" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">View</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customview37">
+																		<label class="custom-control-label mr-1" for="customview37">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prExpensesReport" role="tabpanel" aria-labelledby="prExpensesReport-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Expense Report
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="custommExpenseR">
+																	<label class="custom-control-label mr-1" for="custommExpenseR">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow37" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">View</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customview38">
+																		<label class="custom-control-label mr-1" for="customview38">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prBussinessSetting" role="tabpanel" aria-labelledby="prBussinessSetting-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage General
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customBSGeneral">
+																	<label class="custom-control-label mr-1" for="customBSGeneral">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow38" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate39">
+																		<label class="custom-control-label mr-1" for="customupdate39">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+														<div class="col-12 ">
+															<div class="p-2 bg-light mb-4">
+															  <div class="switch-h d-flex justify-content-between mb-0">
+																  <h4 class="font-size-h4 text-dark mb-0">Manage POS
+																  </h4>
+																  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	  <input type="checkbox" class="custom-control-input" id="customBSPOS">
+																	  <label class="custom-control-label mr-1" for="customBSPOS">
+																	  </label>
+																	</div>
+															  </div>
+															</div>
+															<div class="permissionsallow39" style="display: none;">
+															  <div class="toggle-swither px-5 py-3 border-top">
+																  <div class="switch-h d-flex justify-content-between mb-3">
+																	  <h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		  <input type="checkbox" class="custom-control-input"  id="customupdate40">
+																		  <label class="custom-control-label mr-1" for="customupdate40">
+																		  </label>
+																		</div>
+																  </div>
+															  </div>
+															 </div>	 
+														  </div>
+														  <div class="col-12 ">
+															<div class="p-2 bg-light mb-4">
+															  <div class="switch-h d-flex justify-content-between mb-0">
+																  <h4 class="font-size-h4 text-dark mb-0">Manage Email SMPTP 
+																  </h4>
+																  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	  <input type="checkbox" class="custom-control-input" id="customBSEmail">
+																	  <label class="custom-control-label mr-1" for="customBSEmail">
+																	  </label>
+																	</div>
+															  </div>
+															</div>
+															<div class="permissionsallow40" style="display: none;">
+															
+															  <div class="toggle-swither px-5 py-3 border-top">
+																  <div class="switch-h d-flex justify-content-between mb-3">
+																	  <h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		  <input type="checkbox" class="custom-control-input"  id="customupdate41">
+																		  <label class="custom-control-label mr-1" for="customupdate41">
+																		  </label>
+																		</div>
+																  </div>
+															  </div>
+															 </div>	 
+														  </div>
+														  <div class="col-12 ">
+															<div class="p-2 bg-light mb-4">
+															  <div class="switch-h d-flex justify-content-between mb-0">
+																  <h4 class="font-size-h4 text-dark mb-0">Manage SMS
+																  </h4>
+																  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	  <input type="checkbox" class="custom-control-input" id="customBSSMS">
+																	  <label class="custom-control-label mr-1" for="customBSSMS">
+																	  </label>
+																	</div>
+															  </div>
+															</div>
+															<div class="permissionsallow41" style="display: none;">
+															  <div class="toggle-swither px-5 py-3 border-top">
+																  <div class="switch-h d-flex justify-content-between mb-3">
+																	  <h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		  <input type="checkbox" class="custom-control-input"  id="customupdate42">
+																		  <label class="custom-control-label mr-1" for="customupdate42">
+																		  </label>
+																		</div>
+																  </div>
+															  </div>
+															 </div>	 
+														  </div>
+														  <div class="col-12 ">
+															<div class="p-2 bg-light mb-4">
+															  <div class="switch-h d-flex justify-content-between mb-0">
+																  <h4 class="font-size-h4 text-dark mb-0">Manage Notification
+																  </h4>
+																  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	  <input type="checkbox" class="custom-control-input" id="customNotification">
+																	  <label class="custom-control-label mr-1" for="customNotification">
+																	  </label>
+																	</div>
+															  </div>
+															</div>
+															<div class="permissionsallow42" style="display: none;">
+															  <div class="toggle-swither px-5 py-3 border-top">
+																  <div class="switch-h d-flex justify-content-between mb-3">
+																	  <h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		  <input type="checkbox" class="custom-control-input"  id="customupdate43">
+																		  <label class="custom-control-label mr-1" for="customupdate43">
+																		  </label>
+																		</div>
+																  </div>
+															  </div>
+															 </div>	 
+														  </div>
+														  <div class="col-12 ">
+															<div class="p-2 bg-light mb-4">
+															  <div class="switch-h d-flex justify-content-between mb-0">
+																  <h4 class="font-size-h4 text-dark mb-0">Manage Invoice
+																  </h4>
+																  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	  <input type="checkbox" class="custom-control-input" id="customBSInvoice">
+																	  <label class="custom-control-label mr-1" for="customBSInvoice">
+																	  </label>
+																	</div>
+															  </div>
+															</div>
+															<div class="permissionsallow43" style="display: none;">
+															  <div class="toggle-swither px-5 py-3 border-top">
+																  <div class="switch-h d-flex justify-content-between mb-3">
+																	  <h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		  <input type="checkbox" class="custom-control-input"  id="customupdate44">
+																		  <label class="custom-control-label mr-1" for="customupdate44">
+																		  </label>
+																		</div>
+																  </div>
+															  </div>
+															 </div>	 
+														  </div>
+														  <div class="col-12 ">
+															<div class="p-2 bg-light mb-4">
+															  <div class="switch-h d-flex justify-content-between mb-0">
+																  <h4 class="font-size-h4 text-dark mb-0">Manage Barcodes
+																  </h4>
+																  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	  <input type="checkbox" class="custom-control-input" id="customBarcodes">
+																	  <label class="custom-control-label mr-1" for="customBarcodes">
+																	  </label>
+																	</div>
+															  </div>
+															</div>
+															<div class="permissionsallow44" style="display: none;">
+															  <div class="toggle-swither px-5 py-3 border-top">
+																  <div class="switch-h d-flex justify-content-between mb-3">
+																	  <h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		  <input type="checkbox" class="custom-control-input"  id="customupdate45">
+																		  <label class="custom-control-label mr-1" for="customupdate45">
+																		  </label>
+																		</div>
+																  </div>
+															  </div>
+															 </div>	 
+														  </div>
+														  <div class="col-12 ">
+															<div class="p-2 bg-light mb-4">
+															  <div class="switch-h d-flex justify-content-between mb-0">
+																  <h4 class="font-size-h4 text-dark mb-0">Manage Email Template
+																  </h4>
+																  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	  <input type="checkbox" class="custom-control-input" id="customEmaila">
+																	  <label class="custom-control-label mr-1" for="customEmaila">
+																	  </label>
+																	</div>
+															  </div>
+															</div>
+															<div class="permissionsallow45" style="display: none;">
+															  <div class="toggle-swither px-5 py-3 border-top">
+																  <div class="switch-h d-flex justify-content-between mb-3">
+																	  <h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		  <input type="checkbox" class="custom-control-input"  id="customupdate46">
+																		  <label class="custom-control-label mr-1" for="customupdate46">
+																		  </label>
+																		</div>
+																  </div>
+															  </div>
+															 </div>	 
+														  </div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prWebSetting" role="tabpanel" aria-labelledby="prWebSetting-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage General
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customWBGeneral">
+																	<label class="custom-control-label mr-1" for="customWBGeneral">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow46" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate47">
+																		<label class="custom-control-label mr-1" for="customupdate47">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+														<div class="col-12 ">
+															<div class="p-2 bg-light mb-4">
+															  <div class="switch-h d-flex justify-content-between mb-0">
+																  <h4 class="font-size-h4 text-dark mb-0">Manage Theme Setting
+																  </h4>
+																  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	  <input type="checkbox" class="custom-control-input" id="customcustomWBTheme">
+																	  <label class="custom-control-label mr-1" for="customcustomWBTheme">
+																	  </label>
+																	</div>
+															  </div>
+															</div>
+															<div class="permissionsallow47" style="display: none;">
+															  <div class="toggle-swither px-5 py-3 border-top">
+																  <div class="switch-h d-flex justify-content-between mb-3">
+																	  <h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		  <input type="checkbox" class="custom-control-input"  id="customupdate48">
+																		  <label class="custom-control-label mr-1" for="customupdate48">
+																		  </label>
+																		</div>
+																  </div>
+															  </div>
+															 </div>	 
+														</div>
+														<div class="col-12 ">
+															<div class="p-2 bg-light mb-4">
+															  <div class="switch-h d-flex justify-content-between mb-0">
+																  <h4 class="font-size-h4 text-dark mb-0">Manage SEO Content
+																  </h4>
+																  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	  <input type="checkbox" class="custom-control-input" id="customWBSEO">
+																	  <label class="custom-control-label mr-1" for="customWBSEO">
+																	  </label>
+																	</div>
+															  </div>
+															</div>
+															<div class="permissionsallow48" style="display: none;">
+															  <div class="toggle-swither px-5 py-3 border-top">
+																  <div class="switch-h d-flex justify-content-between mb-3">
+																	  <h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		  <input type="checkbox" class="custom-control-input"  id="customupdate49">
+																		  <label class="custom-control-label mr-1" for="customupdate49">
+																		  </label>
+																		</div>
+																  </div>
+															  </div>
+															 </div>	 
+														</div>
+														<div class="col-12 ">
+															<div class="p-2 bg-light mb-4">
+															  <div class="switch-h d-flex justify-content-between mb-0">
+																  <h4 class="font-size-h4 text-dark mb-0">Manage Slider
+																  </h4>
+																  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	  <input type="checkbox" class="custom-control-input" id="custommediab">
+																	  <label class="custom-control-label mr-1" for="custommediab">
+																	  </label>
+																	</div>
+															  </div>
+															</div>
+															<div class="permissionsallow2" style="display: none;">
+															  <div class="toggle-swither px-5 py-3 border-top">
+																  <div class="switch-h d-flex justify-content-between mb-3">
+																	  <h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		  <input type="checkbox" class="custom-control-input"  id="customupdate50">
+																		  <label class="custom-control-label mr-1" for="customupdate50">
+																		  </label>
+																		</div>
+																  </div>
+															  </div>
+															 </div>	 
+														</div>
+														<div class="col-12 ">
+															<div class="p-2 bg-light mb-4">
+															  <div class="switch-h d-flex justify-content-between mb-0">
+																  <h4 class="font-size-h4 text-dark mb-0">Manage Login/Signup
+																  </h4>
+																  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	  <input type="checkbox" class="custom-control-input" id="customWBLoginb">
+																	  <label class="custom-control-label mr-1" for="customWBLoginb">
+																	  </label>
+																	</div>
+															  </div>
+															</div>
+															<div class="permissionsallow49" style="display: none;">
+															  <div class="toggle-swither px-5 py-3 border-top">
+																  <div class="switch-h d-flex justify-content-between mb-3">
+																	  <h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		  <input type="checkbox" class="custom-control-input"  id="customupdate51">
+																		  <label class="custom-control-label mr-1" for="customupdate51">
+																		  </label>
+																		</div>
+																  </div>
+															  </div>
+															 </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prAppSetting" role="tabpanel" aria-labelledby="prAppSetting-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage General
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customAPPGeneral">
+																	<label class="custom-control-label mr-1" for="customAPPGeneral">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow50" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate52">
+																		<label class="custom-control-label mr-1" for="customupdate52">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	 
+														</div>
+														<div class="col-12 ">
+															<div class="p-2 bg-light mb-4">
+															  <div class="switch-h d-flex justify-content-between mb-0">
+																  <h4 class="font-size-h4 text-dark mb-0">Manage Display In Menu/Sidebar
+																  </h4>
+																  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	  <input type="checkbox" class="custom-control-input" id="customAPMenu">
+																	  <label class="custom-control-label mr-1" for="customAPMenu">
+																	  </label>
+																	</div>
+															  </div>
+															</div>
+															<div class="permissionsallow51" style="display: none;">
+															  <div class="toggle-swither px-5 py-3 border-top">
+																  <div class="switch-h d-flex justify-content-between mb-3">
+																	  <h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		  <input type="checkbox" class="custom-control-input"  id="customupdate53">
+																		  <label class="custom-control-label mr-1" for="customupdate53">
+																		  </label>
+																		</div>
+																  </div>
+															  </div>
+															 </div>	 
+														</div>
+														<div class="col-12 ">
+															<div class="p-2 bg-light mb-4">
+															  <div class="switch-h d-flex justify-content-between mb-0">
+																  <h4 class="font-size-h4 text-dark mb-0">Manage Local Notification
+																  </h4>
+																  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	  <input type="checkbox" class="custom-control-input" id="customAPNotification">
+																	  <label class="custom-control-label mr-1" for="customAPNotification">
+																	  </label>
+																	</div>
+															  </div>
+															</div>
+															<div class="permissionsallow52" style="display: none;">
+															  <div class="toggle-swither px-5 py-3 border-top">
+																  <div class="switch-h d-flex justify-content-between mb-3">
+																	  <h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		  <input type="checkbox" class="custom-control-input"  id="customupdate54">
+																		  <label class="custom-control-label mr-1" for="customupdate54">
+																		  </label>
+																		</div>
+																  </div>
+															  </div>
+															 </div>	 
+														</div>
+														<div class="col-12 ">
+															<div class="p-2 bg-light mb-4">
+															  <div class="switch-h d-flex justify-content-between mb-0">
+																  <h4 class="font-size-h4 text-dark mb-0">Manage Login/Signup
+																  </h4>
+																  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	  <input type="checkbox" class="custom-control-input" id="customAPPLOGIN">
+																	  <label class="custom-control-label mr-1" for="customAPPLOGIN">
+																	  </label>
+																	</div>
+															  </div>
+															</div>
+															<div class="permissionsallow53" style="display: none;">
+															  <div class="toggle-swither px-5 py-3 border-top">
+																  <div class="switch-h d-flex justify-content-between mb-3">
+																	  <h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	  <div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		  <input type="checkbox" class="custom-control-input"  id="customupdate55">
+																		  <label class="custom-control-label mr-1" for="customupdate55">
+																		  </label>
+																		</div>
+																  </div>
+															  </div>
+															 </div>	 
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prLanguage" role="tabpanel" aria-labelledby="prLanguage-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Language
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customLanguage">
+																	<label class="custom-control-label mr-1" for="customLanguage">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow54" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd56">
+																		<label class="custom-control-label mr-1" for="customadd56">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate56">
+																		<label class="custom-control-label mr-1" for="customupdate56">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete56">
+																		<label class="custom-control-label mr-1" for="customdelete56">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	  
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prCurrency" role="tabpanel" aria-labelledby="prCurrency-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Currency
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customCurrency">
+																	<label class="custom-control-label mr-1" for="customCurrency">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow55" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customadd57">
+																		<label class="custom-control-label mr-1" for="customadd57">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate57">
+																		<label class="custom-control-label mr-1" for="customupdate57">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete57">
+																		<label class="custom-control-label mr-1" for="customdelete57">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	  
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prPaymentMethod" role="tabpanel" aria-labelledby="prPaymentMethod-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Payement Method
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customPayementMethod">
+																	<label class="custom-control-label mr-1" for="customPayementMethod">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow56" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate58">
+																		<label class="custom-control-label mr-1" for="customupdate58">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete58">
+																		<label class="custom-control-label mr-1" for="customdelete58">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	  
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prShippingMethod" role="tabpanel" aria-labelledby="prShippingMethod-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Shipping Method
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customShippingmethod">
+																	<label class="custom-control-label mr-1" for="customShippingmethod">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow57" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate59">
+																		<label class="custom-control-label mr-1" for="customupdate59">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete59">
+																		<label class="custom-control-label mr-1" for="customdelete59">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	  
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prTax" role="tabpanel" aria-labelledby="prTax-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Tax
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customTax">
+																	<label class="custom-control-label mr-1" for="customTax">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow58" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customAdd60">
+																		<label class="custom-control-label mr-1" for="customAdd60">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate60">
+																		<label class="custom-control-label mr-1" for="customupdate60">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete60">
+																		<label class="custom-control-label mr-1" for="customdelete60">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	  
+														</div>
+													</div>	
+												</div>
+												<div class="tab-pane fade" id="prCoupons" role="tabpanel" aria-labelledby="prCoupons-tab">
+													<div class="main-heading border-0">
+														<h3 class="card-label mb-3 font-weight-bold text-body">Permisssions
+														</h3>
+													</div>
+													<div class="form-group row">
+														<div class="col-12 ">
+														  <div class="p-2 bg-light mb-4">
+															<div class="switch-h d-flex justify-content-between mb-0">
+																<h4 class="font-size-h4 text-dark mb-0">Manage Coupons
+																</h4>
+																<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																	<input type="checkbox" class="custom-control-input" id="customCoupons">
+																	<label class="custom-control-label mr-1" for="customCoupons">
+																	</label>
+																  </div>
+															</div>
+														  </div>
+														  <div class="permissionsallow59" style="display: none;">
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Add</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customAdd61">
+																		<label class="custom-control-label mr-1" for="customAdd61">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Update</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customupdate61">
+																		<label class="custom-control-label mr-1" for="customupdate61">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+															<div class="toggle-swither px-5 py-3 border-top">
+																<div class="switch-h d-flex justify-content-between mb-3">
+																	<h4 class="font-size-h4 text-dark mb-0">Delete</h4>
+																	<div class="custom-control switch custom-switch-info custom-switch custom-control-inline mr-0">
+																		<input type="checkbox" class="custom-control-input"  id="customdelete61">
+																		<label class="custom-control-label mr-1" for="customdelete61">
+																		</label>
+																	  </div>
+																</div>
+															</div>
+														   </div>	  
+														</div>
+													</div>	
+												</div>
+											</div>
+										
+										</div>
+									
+									</div>
+								</div>
+							</div>		
+							<div class="row">
+								<div class="col-md-12 d-flex justify-content-end">
+									<button type="submit" class="btn btn-secondary white">Save Changes</button>
+								</div>
+							</div>	
+						</div>
+						
+					</div>
+					
+				</div>
+
+				
+				<div class="footer bg-white py-4 d-flex flex-lg-column" id="tc_footer">
+					
+					<div
+						class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
+						
+						<div class="text-dark order-2 order-md-1">
+							<span class="text-muted font-weight-bold mr-2">2020©</span>
+							<a href="#" target="_blank" class="text-dark-75 text-hover-primary">Themescoder</a>
+						</div>
+
+						<div class="nav nav-dark">
+							<a href="#" target="_blank" class="nav-link pl-0 pr-5">About</a>
+							<a href="#c" target="_blank" class="nav-link pl-0 pr-5">Team</a>
+							<a href="#" target="_blank" class="nav-link pl-0 pr-0">Contact</a>
+						</div>
+
+					</div>
+
+				</div>
+				<!--end::Footer-->
+			</div>
+			<!--end::Wrapper-->
+		</div>
+		<!--end::Page-->
+	</div>
+	<!--end::Main-->
+
+
+
+	<ul class="sticky-toolbar nav flex-column bg-primary">
+
+		<li class="nav-item" id="kt_demo_panel_toggle" data-toggle="tooltip" title="" data-placement="right"
+			data-original-title="Check out more demos">
+			<a class="btn btn-sm btn-icon text-white" href="#">
+				<svg width="20px" height="20px" viewBox="0 0 16 16" class="bi bi-gear fa-spin" fill="currentColor"
+					xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd"
+						d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z" />
+					<path fill-rule="evenodd"
+						d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z" />
+				</svg>
+			</a>
+		</li>
+	</ul>
+
+
+
+
+	<div id="kt_color_panel" class="offcanvas offcanvas-right kt-color-panel p-5">
+		<div class="offcanvas-header d-flex align-items-center justify-content-between pb-3">
+			<h4 class="font-size-h4 font-weight-bold m-0">Theme Config
+			</h4>
+			<a href="#" class="btn btn-sm btn-icon btn-light btn-hover-primary" id="kt_color_panel_close">
+				<svg width="20px" height="20px" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor"
+					xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd"
+						d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+				</svg>
+			</a>
+		</div>
+		<hr>
+		<div class="offcanvas-content">
+			<!-- Theme options starts -->
+			<div id="customizer-theme-layout" class="customizer-theme-layout">
+
+				<h5 class="mt-1">Theme Layout</h5>
+				<div class="theme-layout">
+					<div class="d-flex justify-content-start">
+						<div class="my-3">
+							<div class="btn-group btn-group-toggle">
+								<label class="btn btn-primary p-2 active">
+									<input type="radio" name="layoutOptions" value="false" id="radio-light" checked="">
+									Light
+								</label>
+								<label class="btn btn-primary p-2">
+									<input type="radio" name="layoutOptions" value="false" id="radio-dark"> Dark
+								</label>
+
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+				<hr>
+				<h5 class="mt-1">RTL Layout</h5>
+				<div class="rtl-layout">
+					<div class="d-flex justify-content-start">
+						<div class="my-3 btn-rtl">
+							<div class="toggle">
+								<span class="circle"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr>
+
+			<!-- Theme options starts -->
+			<div id="customizer-theme-colors" class="customizer-theme-colors">
+				<h5>Theme Colors</h5>
+				<ul class="list-inline unstyled-list d-flex">
+					<li class="color-box mr-2">
+						<div id="color-theme-default" class="d-flex rounded w-20px h-20px" style="background-color: #ae69f5d9;">
+						</div>
+					</li>
+					<li class="color-box mr-2">
+						<div id="color-theme-blue" class="d-flex rounded w-20px h-20px" style="background-color: blue;">
+						</div>
+					</li>
+					<li class="color-box mr-2">
+						<div id="color-theme-red" class="d-flex rounded w-20px h-20px" style="background-color: red;">
+						</div>
+					</li>
+					<li class="color-box mr-2">
+						<div id="color-theme-green" class="d-flex rounded w-20px h-20px" style="background-color: green;">
+						</div>
+					</li>
+					<li class="color-box mr-2">
+						<div id="color-theme-yellow" class="d-flex rounded w-20px h-20px" style="background-color: #ffc107;">
+						</div>
+					</li>
+					<li class="color-box mr-2">
+						<div id="color-theme-navy-blue" class="d-flex rounded w-20px h-20px" style="background-color: #000080;">
+						</div>
+					</li>
+
+				</ul>
+				<hr>
+			</div>
+
+
+		</div>
+	</div>	
+	<div class="modal fade" id="quickViewModal" tabindex="-1" role="dialog" aria-hidden="true">        
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+              <div class="modal-body">
+                  
+
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+          </div>
+        </div>
+      </div>
+
+
+	  <script src="./assets/js/plugin.bundle.min.js"></script>
+	  <script src="./assets/js/bootstrap.bundle.min.js"></script>
+	  
+	  <script src="./assets/js/slick.min.js"></script>
+	  <script src="./assets/api/jqueryvalidate/jquery.validate.min.js"></script>
+	  <script src="./assets/api/apexcharts/apexcharts.js"></script>
+	  <script src="./assets/api/apexcharts/scriptcharts.js"></script> 
+	  <script src="./assets/api/pace/pace.js"></script>
+	  <script src="./assets/api/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+	  <script src="./assets/api/quill/quill.min.js"></script>
+	  <script src="./assets/api/editor/classic.ckeditor.js"></script>
+	  <script src="./assets/api/editor/inline.ckeditor.js"></script>
+	  <script src="./assets/api/datatable/jquery.dataTables.min.js"></script>
+	  <script src="./assets/api/select2/select2.min.js"></script>
+	  <script src="./assets/api/multiple-select/multiple-select.min.js"></script>
+	  
+	  <script src="./assets/api/daterange-picker/moment.min.js"></script>
+	  <script src="./assets/api/daterange-picker/daterangepicker.min.js"></script>
+	  <script src="./assets/js/roles-permission.js"></script>
+	  <script src="./assets/js/script.bundle.js"></script>
+	  
+	  <script src="./assets/js/script-slick.js"></script>
+	  
+	  <script>
+		  jQuery(document).ready(function() {
+		  jQuery('#orderTable').DataTable({
+			
+			  "info":     false,
+			  "paging":   false,
+			  "searching": false,
+		
+		  "columnDefs": [ {
+			"targets"  : 'no-sort',
+			"orderable": false,
+		  }]
+		  });
+	  } );
+		  jQuery('.addproduct-js').slick('refresh');
+			  jQuery(document).ready(function() {
+			  jQuery('.js-Select').select2();
+		  });
+		  jQuery('.addproduct-js').slick('refresh');
+			  jQuery(document).ready(function() {
+			  jQuery('.js-example-basic-single').select2();
+			  
+		  });
+		  jQuery(document).ready(function() {
+			  jQuery('.js-example-basic-multiple').select2();
+		  });
+		  jQuery(document).ready(function() {
+			  jQuery('.js-size-multiple').select2();
+		  });
+		  
+		  var options = {
+		debug: 'info',
+		modules: {
+		  toolbar: '#toolbar'
+		},
+		placeholder: 'Compose an epic...',
+		readOnly: true,
+		theme: 'snow'
+	  };
+	  var editor = new Quill('#editor', options);
+	  
+	  
+	  jQuery(document).ready( function () {
+		  jQuery('#myTable').DataTable();
+	  } );
+	  
+	  jQuery(function() {
+			  jQuery('.single-select').multipleSelect({
+			filter: true,
+			filterAcceptOnEnter: true
+		  })
+		})
+		jQuery(function() {
+			  jQuery('input[name="birthday"]').daterangepicker({
+		  singleDatePicker: true,
+		  showDropdowns: true,
+		  minYear: 1901,
+		  maxYear: parseInt(moment().format('YYYY'),10)
+		}, 
+		function(start, end, label) {
+		  var years = moment().diff(start, 'years');
+		  
+		});
+	  });
+	  
+	  </script>
+</body>
