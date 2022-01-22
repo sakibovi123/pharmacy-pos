@@ -263,7 +263,8 @@ class MedicineOperation(View):
                 shop=shopId.id
             )
             args = {
-                "medicines": medicines
+                "medicines": medicines,
+                "shopId": shopId,
             }
             return render(request, self.template_name, args)
         else:
@@ -470,7 +471,7 @@ class MedicineBrandOperation(View):
             }
             return render(request, self.template_name, args)
         else:
-            return redirect("")
+            return redirect("warning")
 
 
     def post(self, request, shop_id, brand_id):
@@ -488,7 +489,9 @@ class MedicineBrandCreateView(View):
     def get(self, request, shop_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
         if shopId.user == request.user:
-            args = {}
+            args = {
+                "shopId": shopId,
+            }
             return render(request, self.template_name, args)
         else:
             return redirect("warning")
@@ -573,7 +576,7 @@ class MedicineVendorView(View):
 
 
 class MedicineCreateView(View):
-    template_name = "Test/Venodr/create-vendor.html"
+    template_name = "Test/Medicine/create-medicine.html"
     def get(self, request, shop_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
         msg = None
@@ -711,6 +714,30 @@ class OrderDetailsView(View):
             return render(request, self.template_name, args)
         else:
             return redirect("warning")
+
+
+class RoleOperationView(View):
+    template_name = ""
+
+    def get(self, request, shop_id):
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        if shopId.user == request.user:
+            args = {
+                "shopId": shopId,
+            }
+            return render(request, self.template_name, args)
+        else:
+            return redirect("login")
+    
+    # Deleting role
+    def post(self, request, shop_id, role_id):
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        roleId = get_object_or_404(Role, pk=role_id)
+        if roleId is not None:
+            roleId.delete()
+            return redirect()
+        else:
+            return redirect()
 
 
 """

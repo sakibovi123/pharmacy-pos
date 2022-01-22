@@ -6,3 +6,22 @@
 .azim____search{
     margin-bottom: -14px;
 }
+
+/* brand add brand btn */
+
+.icon_____bar{
+    align-items: center;
+}
+.add_____btn{
+    border: 1px solid #000 !important;
+    padding: 0.5rem !important;
+}
+.upload_____img label{
+    border: 1px solid #000;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+.add_____btn:hover{
+    text-decoration: none;
+}
