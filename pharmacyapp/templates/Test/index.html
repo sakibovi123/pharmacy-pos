@@ -124,12 +124,12 @@
                               <span
                                 class="text-dark font-weight-bold font-size-h1 mr-3"
                                 ><span class="counter" data-target="400"
-                                  >0</span
+                                  >{{ count_orders }}</span
                                 ></span
                               >
                             </div>
                             <div class="text-black-50 mt-3">
-                              Compare to last year (2019)
+                              
                             </div>
                           </div>
                         </div>
@@ -146,12 +146,12 @@
                               <span
                                 class="text-dark font-weight-bold font-size-h1 mr-3"
                                 ><span class="counter" data-target="600"
-                                  >0</span
+                                  >{{ count_products }}</span
                                 ></span
                               >
                             </div>
                             <div class="text-black-50 mt-3">
-                              Compare to last year (2019)
+                              {% comment %} Compare to last year (2019) {% endcomment %}
                             </div>
                           </div>
                         </div>
@@ -173,7 +173,7 @@
                               >
                             </div>
                             <div class="text-black-50 mt-3">
-                              Compare to last year (2019)
+                              
                             </div>
                           </div>
                         </div>
@@ -190,12 +190,12 @@
                               <span
                                 class="text-dark font-weight-bold font-size-h1 mr-3"
                                 >$<span class="counter" data-target="6800"
-                                  >0</span
+                                  >{{ today__sale }} | ${{general__sale}}</span
                                 ></span
                               >
                               <span
                                 class="font-weight-bold font-size-h4 text-danger"
-                                >8.2</span
+                                >{{ increase }}</span
                               >
                               <span class="svg-icon text-danger">
                                 <svg
@@ -214,7 +214,7 @@
                               </span>
                             </div>
                             <div class="text-black-50 mt-3">
-                              Compare to last year (2019)
+                              {% comment %} Compare to last year (2019) {% endcomment %}
                             </div>
                           </div>
                         </div>
@@ -287,255 +287,28 @@
                                   </tr>
                                 </thead>
                                 <tbody class="kt-table-tbody text-dark">
+                                  {% if orders %}
+                                  {% for o in orders %}
                                   <tr class="kt-table-row kt-table-row-level-0">
-                                    <td class="kt-table-cell">#12425</td>
+                                    <td class="kt-table-cell">#{{ o.id }}</td>
                                     <td class="kt-table-cell">
                                       <div class="d-flex align-items-center">
-                                        <span class="ml-2">Clayton Bates</span>
+                                        <span class="ml-2">{{ o.customer_name }}</span>
                                       </div>
                                     </td>
 
-                                    <td class="kt-table-cell">$137.00</td>
+                                    <td class="kt-table-cell">${{ o.total }}</td>
                                     <td class="kt-table-cell">
                                       <div class="text-right">
                                         <span class="mr-0 text-success"
-                                          >Approved</span
+                                          >{{ o.status }}</span
                                         >
                                       </div>
                                     </td>
                                   </tr>
-                                  <tr class="kt-table-row kt-table-row-level-0">
-                                    <td class="kt-table-cell">#12425</td>
-                                    <td class="kt-table-cell">
-                                      <div class="d-flex align-items-center">
-                                        <span class="ml-2"
-                                          >Gabriel Frazier</span
-                                        >
-                                      </div>
-                                    </td>
-                                    <td class="kt-table-cell">$322.00</td>
-                                    <td class="kt-table-cell">
-                                      <div class="text-right">
-                                        <span class="mr-0 text-success"
-                                          >Approved</span
-                                        >
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr class="kt-table-row kt-table-row-level-0">
-                                    <td class="kt-table-cell">#12425</td>
-                                    <td class="kt-table-cell">
-                                      <div class="d-flex align-items-center">
-                                        <span class="ml-2">Debra Hamilton</span>
-                                      </div>
-                                    </td>
-                                    <td class="kt-table-cell">$543.00</td>
-                                    <td class="kt-table-cell">
-                                      <div class="text-right">
-                                        <span class="mr-0 text-info"
-                                          >Pending</span
-                                        >
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr class="kt-table-row kt-table-row-level-0">
-                                    <td class="kt-table-cell">#12425</td>
-                                    <td class="kt-table-cell">
-                                      <div class="d-flex align-items-center">
-                                        <span class="ml-2">Stacey Ward</span>
-                                      </div>
-                                    </td>
-                                    <td class="kt-table-cell">$876.00</td>
-                                    <td class="kt-table-cell">
-                                      <div class="text-right">
-                                        <span class="mr-0 text-danger"
-                                          >Rejected</span
-                                        >
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr class="kt-table-row kt-table-row-level-0">
-                                    <td class="kt-table-cell">#12425</td>
-                                    <td class="kt-table-cell">
-                                      <div class="d-flex align-items-center">
-                                        <span class="ml-2">Troy Alexander</span>
-                                      </div>
-                                    </td>
-                                    <td class="kt-table-cell">$241.00</td>
-                                    <td class="kt-table-cell">
-                                      <div class="text-right">
-                                        <span class="mr-0 text-success"
-                                          >Approved</span
-                                        >
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr class="kt-table-row kt-table-row-level-0">
-                                    <td class="kt-table-cell">#12425</td>
-                                    <td class="kt-table-cell">
-                                      <div class="d-flex align-items-center">
-                                        <span class="ml-2">Clayton Bates</span>
-                                      </div>
-                                    </td>
-
-                                    <td class="kt-table-cell">$137.00</td>
-                                    <td class="kt-table-cell">
-                                      <div class="text-right">
-                                        <span class="mr-0 text-success"
-                                          >Approved</span
-                                        >
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr class="kt-table-row kt-table-row-level-0">
-                                    <td class="kt-table-cell">#12425</td>
-                                    <td class="kt-table-cell">
-                                      <div class="d-flex align-items-center">
-                                        <span class="ml-2"
-                                          >Gabriel Frazier</span
-                                        >
-                                      </div>
-                                    </td>
-                                    <td class="kt-table-cell">$322.00</td>
-                                    <td class="kt-table-cell">
-                                      <div class="text-right">
-                                        <span class="mr-0 text-success"
-                                          >Approved</span
-                                        >
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr class="kt-table-row kt-table-row-level-0">
-                                    <td class="kt-table-cell">#12425</td>
-                                    <td class="kt-table-cell">
-                                      <div class="d-flex align-items-center">
-                                        <span class="ml-2">Debra Hamilton</span>
-                                      </div>
-                                    </td>
-                                    <td class="kt-table-cell">$543.00</td>
-                                    <td class="kt-table-cell">
-                                      <div class="text-right">
-                                        <span class="mr-0 text-info"
-                                          >Pending</span
-                                        >
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr class="kt-table-row kt-table-row-level-0">
-                                    <td class="kt-table-cell">#12425</td>
-                                    <td class="kt-table-cell">
-                                      <div class="d-flex align-items-center">
-                                        <span class="ml-2">Stacey Ward</span>
-                                      </div>
-                                    </td>
-                                    <td class="kt-table-cell">$876.00</td>
-                                    <td class="kt-table-cell">
-                                      <div class="text-right">
-                                        <span class="mr-0 text-danger"
-                                          >Rejected</span
-                                        >
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr class="kt-table-row kt-table-row-level-0">
-                                    <td class="kt-table-cell">#12425</td>
-                                    <td class="kt-table-cell">
-                                      <div class="d-flex align-items-center">
-                                        <span class="ml-2">Troy Alexander</span>
-                                      </div>
-                                    </td>
-                                    <td class="kt-table-cell">$241.00</td>
-                                    <td class="kt-table-cell">
-                                      <div class="text-right">
-                                        <span class="mr-0 text-success"
-                                          >Approved</span
-                                        >
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr class="kt-table-row kt-table-row-level-0">
-                                    <td class="kt-table-cell">#12425</td>
-                                    <td class="kt-table-cell">
-                                      <div class="d-flex align-items-center">
-                                        <span class="ml-2">Clayton Bates</span>
-                                      </div>
-                                    </td>
-
-                                    <td class="kt-table-cell">$137.00</td>
-                                    <td class="kt-table-cell">
-                                      <div class="text-right">
-                                        <span class="mr-0 text-success"
-                                          >Approved</span
-                                        >
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr class="kt-table-row kt-table-row-level-0">
-                                    <td class="kt-table-cell">#12425</td>
-                                    <td class="kt-table-cell">
-                                      <div class="d-flex align-items-center">
-                                        <span class="ml-2"
-                                          >Gabriel Frazier</span
-                                        >
-                                      </div>
-                                    </td>
-                                    <td class="kt-table-cell">$322.00</td>
-                                    <td class="kt-table-cell">
-                                      <div class="text-right">
-                                        <span class="mr-0 text-success"
-                                          >Approved</span
-                                        >
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr class="kt-table-row kt-table-row-level-0">
-                                    <td class="kt-table-cell">#12425</td>
-                                    <td class="kt-table-cell">
-                                      <div class="d-flex align-items-center">
-                                        <span class="ml-2">Debra Hamilton</span>
-                                      </div>
-                                    </td>
-                                    <td class="kt-table-cell">$543.00</td>
-                                    <td class="kt-table-cell">
-                                      <div class="text-right">
-                                        <span class="mr-0 text-info"
-                                          >Pending</span
-                                        >
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr class="kt-table-row kt-table-row-level-0">
-                                    <td class="kt-table-cell">#12425</td>
-                                    <td class="kt-table-cell">
-                                      <div class="d-flex align-items-center">
-                                        <span class="ml-2">Stacey Ward</span>
-                                      </div>
-                                    </td>
-                                    <td class="kt-table-cell">$876.00</td>
-                                    <td class="kt-table-cell">
-                                      <div class="text-right">
-                                        <span class="mr-0 text-danger"
-                                          >Rejected</span
-                                        >
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr class="kt-table-row kt-table-row-level-0">
-                                    <td class="kt-table-cell">#12425</td>
-                                    <td class="kt-table-cell">
-                                      <div class="d-flex align-items-center">
-                                        <span class="ml-2">Troy Alexander</span>
-                                      </div>
-                                    </td>
-                                    <td class="kt-table-cell">$241.00</td>
-                                    <td class="kt-table-cell">
-                                      <div class="text-right">
-                                        <span class="mr-0 text-success"
-                                          >Approved</span
-                                        >
-                                      </div>
-                                    </td>
-                                  </tr>
+                                  {% endfor %}
+                                 {% else %}No Sales yet!{% endif %}
+                                  
                                 </tbody>
                               </table>
                             </div>

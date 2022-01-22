@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Admin | Dashboard</title>
+    <title>{{ shopId.shop_name }} | Dashboard</title>
     <meta name="description" content="Updates and statistics" />
     <meta
       name="viewport"
@@ -51,5 +51,8 @@
     <script src="{% static 'theme_admin/api/quill/quill.min.js' %}"></script>
     <script src="{% static 'theme_admin/api/datatable/jquery.dataTables.min.js' %}"></script>
     <script src="{% static 'theme_admin/js/script.bundle.js' %}"></script>
+	  <script src="{% static 'theme_admin/js/sweetalert1.js' %}"></script>
+  	<script src="{% static 'theme_admin/js/sweetalert.js' %}"></script>
+  	<script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
   </body>
 </html>

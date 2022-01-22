@@ -53,16 +53,16 @@ class CityModel(models.Model):
 class Vendor(models.Model):
     created_at = models.DateTimeField(default=datetime.now)
     vendor_name = models.CharField(max_length=255, unique=True)
-    tax_id = models.IntegerField(null=True)
+    tax_id = models.IntegerField(null=True, blank=True)
     shop = models.ForeignKey(Shop, on_delete=models.SET_NULL, null=True)
-    address = models.TextField(null=True)
+    address = models.TextField(null=True, blank=True)
     country = models.ForeignKey(CountryModel, on_delete=models.SET_NULL, null=True)
     city = models.ForeignKey(CityModel, on_delete=models.SET_NULL, null=True)
-    zip_code = models.IntegerField(null=True)
+    zip_code = models.IntegerField(null=True, blank=True)
     trade_license = models.CharField(max_length=255, null=True)
     phone_number = models.CharField(max_length=255, null=True)
-    contact_name = models.CharField(max_length=255, null=True)
-    email = models.EmailField(null=True)
+    contact_name = models.CharField(max_length=255, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
     website = models.CharField(max_length=255, null=True, blank=True)
 
     class Meta:

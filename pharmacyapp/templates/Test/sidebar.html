@@ -15,7 +15,7 @@
       <div class="brand flex-column-auto" id="tc_brand">
         <!--begin::Logo-->
 
-        <a href="index.html" class="brand-logo">
+        <a href="{% url 'pharma-admin' shopId.id %}" class="brand-logo">
           <img
             class="brand-image"
             style="height: 25px"
@@ -49,7 +49,7 @@
           <div id="accordion">
             <ul class="nav flex-column">
               <li class="nav-item active">
-                <a href="index.html" class="nav-link">
+                <a href="{% url 'pharma-admin' shopId.id %}" class="nav-link">
                   <span class="svg-icon nav-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +99,7 @@
                 
                       <li class="nav-item">
                         <a
-                          href="{% url "BrandView" shopId.id %}"
+                          href="{% url 'BrandView' shopId.id %}"
                           class="nav-link sub-nav-link"
                         >
                           <span
@@ -124,7 +124,7 @@
                       </li>
                       <li class="nav-item">
                         <a
-                          href="product-category-list.html"
+                          href="{% url 'MedicineCategory' shopId.id %}"
                           class="nav-link sub-nav-link"
                         >
                           <span
@@ -186,7 +186,7 @@
                           <ul class="nav flex-column">
                             <li class="nav-item">
                               <a
-                                href="products.html"
+                                href="{% url 'MedicineView' shopId.id %}"
                                 class="nav-link mini-sub-nav-link"
                               >
                                 <span class="nav-text">List</span>
@@ -195,7 +195,7 @@
 
                             <li class="nav-item">
                               <a
-                                href="add-product.html"
+                                href="{% url 'MedicineCreateView' shopId.id %}"
                                 class="nav-link mini-sub-nav-link"
                               >
                                 <span class="nav-text">Add Medicine</span>
@@ -204,6 +204,60 @@
                           </ul>
                         </div>
                       </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  data-toggle="collapse"
+                  href="javascript:void(0)"
+                  data-target="#vendor"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="vendor"
+                >
+                  <span class="svg-icon nav-icon">
+                    <i class="fas fa-boxes font-size-h4"></i>
+                  </span>
+                  <span class="nav-text">Vendor</span>
+                  <i class="fas fa-chevron-right fa-rotate-90"></i>
+                </a>
+                <div
+                  class="collapse nav-collapse"
+                  id="vendor"
+                  data-parent="#accordion"
+                >
+                  <div id="accordion1">
+                    <ul class="nav flex-column">
+                      <li class="nav-item">
+                        <a
+                          href="{% url 'VendorView' shopId.id %}"
+                          class="nav-link sub-nav-link"
+                        >
+                          <span
+                            class="svg-icon nav-icon d-flex justify-content-center"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="10px"
+                              height="10px"
+                              fill="currentColor"
+                              class="bi bi-circle"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                              />
+                            </svg>
+                          </span>
+                          <span class="nav-text">Vendor</span>
+                        </a>
+                      </li>
+                     
+                    
                     </ul>
                   </div>
                 </div>
@@ -305,7 +359,7 @@
                   <ul class="nav flex-column">
                     <li class="nav-item">
                       <a
-                        href="order-list.html"
+                        href="{% url 'OrderView' shopId.id %}"
                         class="nav-link sub-nav-link"
                       >
                         <span
@@ -456,7 +510,7 @@
                   </ul>
                 </div>
               </li> -->
-              <li class="nav-item">
+              {% comment %} <li class="nav-item">
                 <a
                   class="nav-link"
                   data-toggle="collapse"
@@ -566,7 +620,7 @@
                     </ul>
                   </div>
                 </div>
-              </li>
+              </li> {% endcomment %}
               <li class="nav-item">
                 <a
                   class="nav-link"

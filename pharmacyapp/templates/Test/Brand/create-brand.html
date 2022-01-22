@@ -93,7 +93,7 @@
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-white mb-0 px-0 py-2">
                   <li class="breadcrumb-item active" aria-current="page">
-                    Brands
+                    Create Brands
                   </li>
                 </ol>
               </nav>
@@ -175,20 +175,21 @@
                   </div>
                  
                   <!-- add brand form start -->
-                  <form>
+                  <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div class="form-group">
                       <label for="brandName">Brand Name</label>
-                      <input type="text" class="form-control" id="brandName" aria-describedby="brandname" placeholder="Type Brand Name..">
+                      <input type="text" name="med_brand_name" class="form-control" id="brandName" aria-describedby="brandname" placeholder="Type Brand Name..">
                     </div>
 
                     <div class="upload_____img mb-3">
                       <label for="createuploadImg" class="fw-bold">Upload Image</label>
+                      
                       <input
                         type="file"
                         id="createuploadImg"
-                        name="uploadImg"
                         onchange="forupload(this)"
-                        name="item_img"
+                        name="med_brand_logo"
                         accept="image/*"
                       />
                       <div class="my-2">
