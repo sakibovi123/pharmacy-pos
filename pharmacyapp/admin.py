@@ -14,5 +14,5 @@ admin.site.register([
     MedicineCartItems,
     MedicineCheckout,
     NotificationModel,
-    
+    PurchaseModel,
 ])

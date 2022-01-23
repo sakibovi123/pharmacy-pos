@@ -188,17 +188,19 @@
                                 <thead class="text-body">
                                   <tr>
                                     <th>ID</th>
-                                    <th class="text-center">Brands Name</th>
-                                    <th class="text-center">Note</th>
+                                    <th class="text-center">Vendor Name</th>
+                                    <th class="text-center">Trade License</th>
 
                                     <th class="no-sort text-right">Action</th>
                                   </tr>
                                 </thead>
                                 <tbody class="kt-table-tbody text-dark">
+                                  {% if vendors %}
+                                  {% for v in vendors %}
                                   <tr class="kt-table-row kt-table-row-level-0">
-                                    <td>#01</td>
-                                    <td class="text-center">Levis</td>
-                                    <td class="text-center">Quality Good</td>
+                                    <td>#{{ v.id }}</td>
+                                    <td class="text-center">{{ v.vendor_name }}</td>
+                                    <td class="text-center">{{ v.trade_license }}</td>
 
                                     <td>
                                       <div class="card-toolbar text-right">
@@ -242,19 +244,25 @@
                                           "
                                         >
                                           <a
-                                            href="#"
+                                            href="{% url 'UpdateVendorView' shopId.id v.id %}"
                                             class="dropdown-item click-edit"
                                             >Edit</a
                                           >
-                                          <a
+                                          <form action="{% url 'deleteVendor' shopId.id v.id %}" method="POST">
+                                            {% csrf_token %}
+                                            <input type="hidden" value="{{ v.id }}">
+                                          <button
                                             class="dropdown-item confirm-delete"
-                                            href="#"
-                                            >Delete</a
+                                            type="submit"
+                                            >Delete</button
                                           >
+                                          </form>
                                         </div>
                                       </div>
                                     </td>
                                   </tr>
+                                  {% endfor %}
+                                  {% else %}{% endif %}
                                 </tbody>
                               </table>
                             </div>

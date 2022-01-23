@@ -175,79 +175,59 @@
                   </div>
                  
                   <!-- add brand form start -->
-                  <form>
+                  <form action="" method="POST">
+                    {% csrf_token %}
                     <div class="form-group">
                       <label for="vendorName">Vendor Name</label>
-                      <input type="text" class="form-control" id="brandName" aria-describedby="brandname" placeholder="Type Vendor Name..">
+                      <input type="text" name="vendor_name" class="form-control" id="brandName" aria-describedby="brandname" placeholder="Type Vendor Name..">
                     </div>
                     <div class="form-group">
                         <label for="taxid">Tax ID</label>
-                        <input type="number" class="form-control" id="taxid" aria-describedby="taxID" placeholder="Type TAX ID..">
+                        <input type="number" name="tax_id" class="form-control" id="taxid" aria-describedby="taxID" placeholder="Type TAX ID..">
                       </div>
-                    <div class="mb-3">
-                        <select class="form-control">
-                            <option>Select Shop</option>
-                            <option>1</option>
-                            <option>2</option>
-                          </select>
-                    </div>
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <textarea class="form-control" id="address" rows="3"></textarea>
+                        <textarea class="form-control" name="address" id="address" rows="3"></textarea>
                       </div>
                       <div class="mb-3">
-                        <select class="form-control">
+                        <select class="form-control" name="country">
                             <option>Select Country</option>
-                            <option>Bangladesh</option>
-                            <option>Japan</option>
+                            {% for co in country %}
+                              <option>{{ co.country_name }}</option>
+                            {% endfor %}
                           </select>
                     </div>
                     <div class="mb-3">
-                        <select class="form-control">
+                        <select class="form-control" name="city">
                             <option>Select City</option>
-                            <option>Dhaka</option>
-                            <option>Gazipur</option>
+                            {% for ci in city %}
+                              <option>{{ ci.city_name }}</option>
+                            {% endfor %}
                           </select>
                     </div>
                       <div class="form-group">
                         <label for="zipcode">Zip Code</label>
-                        <input type="number" class="form-control" id="zipcode" aria-describedby="zipCode" placeholder="Type Zip Code..">
+                        <input type="number" name="zip_code" class="form-control" id="zipcode" aria-describedby="zipCode" placeholder="Type Zip Code..">
                       </div>
                       <div class="form-group">
                         <label for="license">License</label>
-                        <input type="text" class="form-control" id="license" aria-describedby="license" placeholder="Type Trade License..">
+                        <input type="text" name="trade_license" class="form-control" id="license" aria-describedby="license" placeholder="Type Trade License..">
                       </div>
                       <div class="form-group">
                         <label for="phonenumber">Phone Number</label>
-                        <input type="text" class="form-control" id="phonenumber" aria-describedby="phoneNumber" placeholder="Type Your Phone Number..">
+                        <input type="text" name="phone_number" class="form-control" id="phonenumber" aria-describedby="phoneNumber" placeholder="Type Your Phone Number..">
                       </div>
                       <div class="form-group">
                         <label for="contactname">Contact Name</label>
-                        <input type="text" class="form-control" id="contactname" aria-describedby="contatName" placeholder="Type Contact Name..">
+                        <input type="text" name="contact_name" class="form-control" id="contactname" aria-describedby="contatName" placeholder="Type Contact Name..">
                       </div> <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Type Your Email..">
+                        <input type="email" name="email" class="form-control" id="email" aria-describedby="email" placeholder="Type Your Email..">
                       </div>
                       <div class="form-group">
                         <label for="website">Website</label>
-                        <input type="text" class="form-control" id="website" aria-describedby="website" placeholder="Type Your Website..">
+                        <input type="text" name="website" class="form-control" id="website" aria-describedby="website" placeholder="Type Your Website..">
                       </div>
-
-                    <!-- <div class="upload_____img mb-3">
-                      <label for="createuploadImg" class="fw-bold">Upload Image</label>
-                      <input
-                        type="file"
-                        id="createuploadImg"
-                        name="uploadImg"
-                        onchange="forupload(this)"
-                        name="item_img"
-                        accept="image/*"
-                      />
-                      <div class="my-2">
-                        <img id="product__img" style="width: 5rem; height: 5rem; object-fit: cover" src="" alt="" />
-                      </div>
-                   
-                    </div> -->
                  
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>

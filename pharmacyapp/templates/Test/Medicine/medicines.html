@@ -241,12 +241,16 @@
                                             href="{% url 'MedicineUpdateView' shopId.id m.id %}"
                                             >Edit</a
                                           >
-                                          <a
+                                          <form action="{% url 'deleteMedicine' shopId.id m.id %}" method="POST">
+                                            {% csrf_token %}
+                                            <input type="hidden" value="{{ m.id }}">
+                                          <button
                                             class="dropdown-item confirm-delete"
                                             title="Delete"
-                                            href="#"
-                                            >Delete</a
+                                            type="submit"
+                                            >Delete</button
                                           >
+                                          </form>
                                         </div>
                                       </div>
                                     </td>

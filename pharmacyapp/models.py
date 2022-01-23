@@ -1,3 +1,4 @@
+from msilib.schema import PublishComponent
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime, date
@@ -68,8 +69,8 @@ class Vendor(models.Model):
     class Meta:
         ordering = ["-id"]
 
-    def __self__(self):
-        return self.vendor_name
+    def __str__(self):
+        return str(self.vendor_name)
 
 
 class MedicineCategory(models.Model):
@@ -92,7 +93,7 @@ class MedicineCategory(models.Model):
 class MedicineBrand(models.Model):
     created_at = models.DateTimeField(default=datetime.now)
     med_brand_name = models.CharField(max_length=255)
-    shop = models.ForeignKey(Shop, on_delete=models.SET_NULL, null=True)
+    shop = models.ForeignKey(Shop, on_delete=models.DO_NOTHING, null=True)
     med_brand_logo = models.ImageField(upload_to="images/", null=True, blank=True)
 
     class Meta:
@@ -132,8 +133,8 @@ class Medicine(models.Model):
     med_image = models.ImageField(upload_to="images/")
     med_category = models.ForeignKey(MedicineCategory, on_delete=models.SET_NULL, null=True)
     med_brand = models.ForeignKey(MedicineBrand, on_delete=models.SET_NULL, null=True)
-    med_power = models.ForeignKey(MedicinePower, on_delete=models.SET_NULL, null=True)
-    med_vendor = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True)
+    med_power = models.ForeignKey(MedicinePower, on_delete=models.SET_NULL, null=True, blank=True)
+    med_vendor = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True, blank=True)
     buying_price = models.DecimalField(decimal_places=2, max_digits=10, default=0.00)
     selling_price = models.DecimalField(decimal_places=2, max_digits=10, default=0.00)
     is_out_of_stock = models.CharField(max_length=255, choices=stock_choice, null=True)
@@ -186,8 +187,9 @@ class MedicineCheckout(models.Model):
     change = models.DecimalField(decimal_places=2, max_digits=10, default=0.00)
     total = models.DecimalField(decimal_places=2, max_digits=10, default=0.00)
     shop = models.ForeignKey(Shop, on_delete=models.SET_NULL, null=True)
+    # quantity = models.IntegerField(null=True)
     is_paid = models.BooleanField(default=False)
-
+    
     status = models.CharField(max_length=255, null=True, blank=True, choices=STATUS_CHOICE)
 
     class Meta:
@@ -225,6 +227,32 @@ class NotificationModel(models.Model):
     def __str__(self):
         return self.content
 
+class PurchaseType(models.Model):
+    title = models.CharField(max_length=255)
 
+    class Meta:
+        ordering = ["-id"]
+
+    def __str__(self):
+        return self.title
+
+
+class PurchaseModel(models.Model):
+    created_date = models.DateField(default=date.today)
+    product_name = models.CharField(max_length=255)
+    product_type = models.ForeignKey(PurchaseType, on_delete=models.DO_NOTHING, null=True)
+    per_product_price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    qty = models.IntegerField()
+    total_cost = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+
+    class Meta:
+        ordering = ["-id"]
+
+    def __str__(self):
+        return str(self.created_date)
+
+    def save(self, *args, **kwargs):
+        self.total_cost = (self.per_product_price * self.qty)
+        super(PurchaseModel, self).save(*args, **kwargs)
 
 

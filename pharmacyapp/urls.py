@@ -52,4 +52,6 @@ urlpatterns = [
     # ALl Actions
     path("delete-brand/<int:shop_id>/<int:brand_id>/", delete_brand, name="DeleteBrand"),
     path("delete-category/<int:shop_id>/<int:cat_id>/", delete_category, name="DeleteCategory"),
+    path("delete-medicine/<int:shop_id>/<int:med_id>/", delete_medicine, name="deleteMedicine"),
+    path("delete-vendor/<int:shop_id>/<int:vendor_id>/", delete_vendor, name="deleteVendor"),
 ]

@@ -121,109 +121,72 @@
                               Create Medicine
                             </h3>
                           </div>
-                          <!-- <div class="icons d-flex icon_____bar">
-                            <a class="btn ml-2 add_____btn"> Add Brand </a>
-                            <a href="#" onclick="printDiv()" class="ml-2">
-                              <span
-                                class="icon h-30px font-size-h5 w-30px d-flex align-items-center justify-content-center rounded-circle"
-                              >
-                                <svg
-                                  width="15px"
-                                  height="15px"
-                                  viewBox="0 0 16 16"
-                                  class="bi bi-printer-fill"
-                                  fill="currentColor"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5z"
-                                  />
-                                  <path
-                                    fill-rule="evenodd"
-                                    d="M11 9H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z"
-                                  />
-                                  <path
-                                    fill-rule="evenodd"
-                                    d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"
-                                  />
-                                </svg>
-                              </span>
-                            </a>
-                            <a href="#" class="ml-2">
-                              <span
-                                class="icon h-30px font-size-h5 w-30px d-flex align-items-center justify-content-center rounded-circle"
-                              >
-                                <svg
-                                  width="15px"
-                                  height="15px"
-                                  viewBox="0 0 16 16"
-                                  class="bi bi-file-earmark-text-fill"
-                                  fill="currentColor"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    fill-rule="evenodd"
-                                    d="M2 2a2 2 0 0 1 2-2h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm7 2l.5-2.5 3 3L10 5a1 1 0 0 1-1-1zM4.5 8a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"
-                                  />
-                                </svg>
-                              </span>
-                            </a>
-                          </div> -->
+                     
                         </div>
                       </div>
                     </div>
                   </div>
                  
                   <!-- add brand form start -->
-                  <form>
+                  <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %} 
                     <div class="form-group">
                       <label for="brandName">Medicine Name</label>
-                      <input type="text" class="form-control" id="brandName" aria-describedby="brandname" placeholder="Type Medicine Name..">
+                      <input type="text" name="med_name" class="form-control" id="brandName" aria-describedby="brandname" placeholder="Type Medicine Name..">
                     </div>
 
                     <div class="mb-3">
-                        <select class="form-control">
+                        <select class="form-control" name="med_category">
                             <option>Select Category</option>
-                            <option>1</option>
-                            <option>2</option>
+                            {% for c in cats %}
+                              <option value="{{ c.med_cat_name }}">{{ c.med_cat_name }}</option>
+                            {% endfor %}
                           </select>
                     </div>
                     <div class="mb-3">
-                        <select class="form-control">
+                        <select class="form-control" name="med_brand">
                             <option>Select Brand</option>
-                            <option>1</option>
-                            <option>2</option>
+                            {% for b in brands %}
+                              <option value="{{ b.med_brand_name }}">{{ b.med_brand_name }}</option>
+                            {% endfor %}
+                            
                           </select>
                     </div>
                     <div class="mb-3">
-                        <select class="form-control">
+                        <select class="form-control" name="med_power">
                             <option>Select Power(MG)</option>
-                            <option>1</option>
-                            <option>2</option>
+                            {% for p in powers %}
+                            <option value="{{ p.power_amount }}">{{ p.power_amount }}</option>
+                            {% endfor %}
                           </select>
                     </div>
                     <div class="mb-3">
-                        <select class="form-control">
+                        <select class="form-control" name="med_vendor">
                             <option>Select Vendor</option>
-                            <option>1</option>
-                            <option>2</option>
+                            {% for v in vendors %}
+                              <option value="{{ v.vendor_name }}">{{ v.vendor_name }}</option>
+                            {% endfor %}
                           </select>
                     </div>
                     <div class="mb-3">
-                        <select class="form-control">
+                        <select class="form-control" name="is_out_of_stock">
                             <option>Stock Availability</option>
-                            <option>Yes</option>
-                            <option>No</option>
+                            <option value="YES">Yes</option>
+                            <option value="NO">No</option>
                           </select>
                     </div>
 
                     <div class="form-group">
                         <label for="buyingprice">Buyiing Price</label>
-                        <input type="number" class="form-control" id="buyingprice" aria-describedby="buyingprice" placeholder="Type Buying Price..">
+                        <input type="number" name="buying_price" class="form-control" id="buyingprice" aria-describedby="buyingprice" placeholder="Type Buying Price..">
                       </div>
                       <div class="form-group">
                         <label for="sellingPrice">Selling Price</label>
-                        <input type="number" class="form-control" id="sellingPrice" aria-describedby="sellingprice" placeholder="Type Selling Price..">
+                        <input type="number" name="selling_price" class="form-control" id="sellingPrice" aria-describedby="sellingprice" placeholder="Type Selling Price..">
+                      </div>
+                      <div class="form-group">
+                        <label for="sellingPrice">Stock Amount</label>
+                        <input type="number" name="stock_amount" class="form-control" id="stockAmount" aria-describedby="sellingprice" placeholder="Type Selling Price..">
                       </div>
 
                     <div class="upload_____img mb-3">
@@ -231,9 +194,8 @@
                       <input
                         type="file"
                         id="createuploadImg"
-                        name="uploadImg"
                         onchange="forupload(this)"
-                        name="item_img"
+                        name="med_image"
                         accept="image/*"
                       />
                       <div class="my-2">

@@ -1,3 +1,4 @@
+from decimal import Decimal
 from django.http import Http404
 from django.shortcuts import get_object_or_404, render, redirect, HttpResponse
 from .models import *
@@ -62,8 +63,9 @@ class PharmaHome(LoginRequiredMixin, View):
     redirect_field_name = "redirect_to"
     template_name = "POS/index.html"
     def get(self, request, shop_id, *args, **kwargs):
-        shop_id = get_object_or_404(Shop, pk=shop_id)
-        if shop_id.user == request.user:
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        
+        if shopId.user == request.user:
             med_cart = request.session.get("med_cart")
             med_cats = MedicineCategory.objects.filter(
                 shop=shop_id
@@ -86,38 +88,38 @@ class PharmaHome(LoginRequiredMixin, View):
                 "med_cats": med_cats,
                 "meds": meds,
                 "med_cart_products": med_cart_products,
-                "shop_id": shop_id,
+                "shopId": shopId,
+                
             }
             return render(request, self.template_name, args)
         else:
             return redirect("warning")
 
     def post(self, request, shop_id, *args, **kwargs):
-        shop_id = get_object_or_404(Shop, pk=shop_id)
-        if shop_id.is_active == True:
+        shopId = get_object_or_404(Shop, pk=shop_id)
+        if shopId.is_active == True:
             med_cart = request.session.get("med_cart")
             remove = request.POST.get("remove")
             med_id = request.POST.get("med_id")
-
-            if med_id is not None:
-                if med_cart:
-                    quantity = med_cart.get(med_id)
-                    if quantity:
-                        if remove:
-                            med_cart[med_id] = quantity - 1
+            if request.method == "POST":
+                if med_id is not None:
+                    if med_cart:
+                        quantity = med_cart.get(med_id)
+                        if quantity:
+                            if remove:
+                                med_cart[med_id] = quantity - 1
+                            else:
+                                med_cart[med_id] = quantity + 1
                         else:
-                            med_cart[med_id] = quantity + 1
-                    else:
-                        med_cart[med_id] = 1
-                    if med_cart[med_id] > 1:
-                        med_cart.pop(med_id)
+                            med_cart[med_id] = 1
+                        
 
-                else:
-                    med_cart = {}
-                    med_cart[med_id] = 1
-                request.session["med_cart"] = med_cart
-            
-                return redirect(f"/")
+                    else:
+                        med_cart = {}
+                        med_cart[med_id] = 1
+                    request.session["med_cart"] = med_cart
+                
+                    return redirect(f"/pharmacy-pos/pos/{shopId.id}/")
 
 # Here all will be shown
 # Order will be shown by shop
@@ -269,10 +271,17 @@ class PharmaAdminView(LoginRequiredMixin, View):
             remove_total_avg = today_sale.pop("total__avg")
             today__sale = remove_total_avg
 
-            if general__sale > today__sale:
-                increase = (general__sale - today__sale) / 100
+            if today__sale is not None:
+                if Decimal(general__sale) > Decimal(today__sale):
+                    increase = (general__sale - today__sale) / 100
+                else:
+                    increase = (today__sale - general_sale) / 100
             else:
-                increase = (today__sale - general_sale) / 100
+                increase = None
+
+            # print(str(general__sale))
+            # print(str(today__sale))
+            # increase = (Decimal(general__sale) - Decimal(today__sale)) / 100
 
             args = {
                 "shopId": shopId,
@@ -350,12 +359,13 @@ class MedicineOperation(LoginRequiredMixin, View):
         else:
             return redirect("warning")
 
-    def post(self, request, shop_id, med_id):
-        shopId = get_object_or_404(Shop, pk=shop_id)
-        medId = get_object_or_404(Medicine, pk=med_id)
-        if shopId.user == request.user and request.method == "POST":
-            medId.delete()
-            return redirect("")
+
+def delete_medicine(request, shop_id, med_id):
+    shopId = get_object_or_404(Shop, pk=shop_id)
+    medId = get_object_or_404(Medicine, pk=med_id)
+    if shopId.user == request.user and request.method == "POST":
+        medId.delete()
+        return redirect(f"/pharmacy-pos/medicines/{shopId.id}/")
 
 
 class MedicineCreateView(LoginRequiredMixin, View):
@@ -365,8 +375,16 @@ class MedicineCreateView(LoginRequiredMixin, View):
     def get(self, request, shop_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
         if shopId.user == request.user:
+            cats = MedicineCategory.objects.filter(shop=shopId.id)
+            brands = MedicineBrand.objects.filter(shop=shopId.id)
+            powers = MedicinePower.objects.all()
+            vendors = Vendor.objects.filter(shop=shopId.id)
             args = {
                 "shopId": shopId,
+                "cats": cats,
+                "brands": brands,
+                "powers": powers,
+                "vendors": vendors,
             }
             return render(request, self.template_name, args)
         else:
@@ -390,18 +408,19 @@ class MedicineCreateView(LoginRequiredMixin, View):
                 meds_val = Medicine(
                     med_name=med_name,
                     med_image=med_image,
-                    med_category=MedicineCategory.objects.get(id=med_category),
-                    med_brand=MedicineBrand.objects.get(id=med_brand),
-                    med_power=MedicinePower.objects.get(id=med_power),
-                    med_vendor=Vendor.objects.get(id=med_vendor),
+                    med_category=MedicineCategory.objects.get(med_cat_name=med_category),
+                    med_brand=MedicineBrand.objects.get(med_brand_name=med_brand),
+                    med_power=MedicinePower.objects.get(power_amount=med_power),
+                    med_vendor=Vendor.objects.get(vendor_name=med_vendor),
                     buying_price=buying_price,
                     selling_price=selling_price,
                     is_out_of_stock=is_out_of_stock,
                     stock_amount=stock_amount,
+                    shop=Shop.objects.get(id=shopId.id),
                 )
                 if len(med_name) > 0 and len(buying_price) > 0 and len(selling_price) > 0:
                     meds_val.save()
-                    return redirect("somewhere")
+                    return redirect(f"/pharmacy-pos/medicines/{shopId.id}/")
 
             return redirect("failed")
 
@@ -415,35 +434,56 @@ class MedicineUpdateView(View):
         med_ids = get_object_or_404(Medicine, pk=med_id)
 
         if shopId.user == request.user and med_ids is not None:
+            cats = MedicineCategory.objects.filter(shop=shopId.id)
+            brands = MedicineBrand.objects.filter(shop=shopId.id)
+            powers = MedicinePower.objects.all()
+            vendors = Vendor.objects.filter(shop=shopId.id)
             args = {
                 "shopId": shopId,
                 "med_ids": med_ids,
+                "cats": cats,
+                "brands": brands,
+                "powers": powers,
+                "vendors": vendors,
             }
             return render(request, self.template_name, args)
         else:
             return redirect()
 
 
-    def post(self, request, id, shop_id, *args, **kwargs):
+    def post(self, request, shop_id, med_id):
         shopId = get_object_or_404(Shop, pk=shop_id)
-        med_ids = get_object_or_404(Medicine, pk=id)
+        med_ids = get_object_or_404(Medicine, id=med_id)
         if shopId.user == request.user:
+            med_name = request.POST.get("med_name")
+            med_image = request.FILES.get("med_image")
+            med_category = request.POST.get("med_category")
+            med_brand = request.POST.get("med_brand")
+            med_power = request.POST.get("med_power")
+            med_vendor = request.POST.get("med_vendor")
+            buying_price = request.POST.get("buying_price")
+            selling_price = request.POST.get("selling_price")
+            is_out_of_stock = request.POST.get("is_out_of_stock")
+            stock_amount = request.POST.get("stock_amount")
+            
             if request.method == "POST":
-                med_ids.med_name = request.POST.get("med_name")
-                med_ids.med_image = request.FILES.get("med_image")
-                med_ids.med_category = request.POST.get("med_category")
-                med_ids.med_brand = request.POST.get("med_brand")
-                med_ids.med_power = request.POST.get("med_power")
-                med_ids.med_vendor = request.POST.get("med_vendor")
-                med_ids.buying_price = request.POST.get("buying_price")
-                med_ids.selling_price = request.POST.get("selling_price")
-                med_ids.is_out_of_stock = request.POST.get("is_out_of_stock")
-                med_ids.stock_amount = request.POST.get("stock_amount")
+                med_ids.med_name = med_name
+                med_ids.med_image = med_image
+                med_ids.med_category = MedicineCategory.objects.get(med_cat_name=med_category)
+                med_ids.med_brand = MedicineBrand.objects.get(med_brand_name=med_brand)
+                med_ids.med_power = MedicinePower.objects.get(power_amount=med_power)
+                med_ids.med_vendor = Vendor.objects.get(vendor_name=med_vendor)
+                print(med_ids.med_vendor)
+                med_ids.buying_price = buying_price
+                med_ids.selling_price = selling_price
+                med_ids.is_out_of_stock = is_out_of_stock
+                med_ids.stock_amount = stock_amount
+               
 
                 med_ids.save()
-                return redirect("somewhere")
-            return redirect("")
-        return redirect("")
+                return redirect(f"/pharmacy-pos/medicines/{shopId.id}/")
+            return redirect("Failed")
+        return redirect("warning")
 
 
 # Medicine Category Get, Insert, put, Delete
@@ -653,22 +693,26 @@ class MedicineVendorView(LoginRequiredMixin, View):
             vendors = Vendor.objects.filter(
                 shop=shopId.id
             )
+            country = CountryModel.objects.all()
+            city = CityModel.objects.filter(country=country)
             args = {
                 "vendors": vendors,
                 "shopId": shopId,
+                "country": country,
+                "city": city,
             }
             return render(request, self.template_name, args)
         else:
             return redirect("warning")
 
-    # Deleting vendor
-    def post(self, request, shop_id, vendor_id):
-        shopId = get_object_or_404(Shop, pk=shop_id)
-        vendorId = get_object_or_404(Vendor, pk=vendor_id)
-        msg = None
-        if shopId.user == request.user and request.method == "POST":
-            vendorId.delete()
-            return redirect(f"")
+# Deleting vendor
+def delete_vendor(request, shop_id, vendor_id):
+    shopId = get_object_or_404(Shop, pk=shop_id)
+    vendorId = get_object_or_404(Vendor, pk=vendor_id)
+    msg = None
+    if shopId.user == request.user and request.method == "POST":
+        vendorId.delete()
+        return redirect(f"")
 
 
 class CreateVendorView(LoginRequiredMixin, View):

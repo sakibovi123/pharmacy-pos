@@ -1,5 +1,6 @@
 {% load static %}
-{% include "Test/base.html" %}
+{% load custom_filter %}
+{% include "POS/base.html" %}
 <link href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
@@ -16,7 +17,7 @@
 					<h3 class="card-label mb-0 font-weight-bold text-primary">WELCOME
 					</h3>
 					<h3 class="card-label mb-0 ">
-						Smith Joones
+						{{ request.user.username }}
 					</h3>
 				   </div>
 			
@@ -113,7 +114,7 @@
 					 <div class="dropdown-menu dropdown-menu-right" style="min-width: 150px;">
  
  
-						 <a href="#" class="dropdown-item">
+						 <a href="{% url 'logout' %}" class="dropdown-item">
 							 <span class="svg-icon svg-icon-xl svg-icon-primary mr-2">
 								 <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-power">
 									 <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
@@ -156,210 +157,29 @@
 						</div>	
 							<div class="product-items">
 								<div class="row">
+									{% if meds %}
+									{% for m in meds %}
 									<div class="col-xl-4 col-lg-2 col-md-3 col-sm-4 col-6">
 										<div class="productCard">
 											<div class="productThumb">
-												<img class="img-fluid" src="./assets/images/carousel/element-banner2-right.jpg" alt="ix">
+												<form action="" method="POST">
+													{% csrf_token %}
+													<input type="hidden" name="med_id" value="{{ m.id }}">
+													<button type="submit">
+														<img class="img-fluid" src="{{ m.med_image.url }}" alt="ix">
+													</button>
+												</form>
 											</div>
 											<div class="productContent">
 												<a href="#">
-													Men Polo Shirt (M) -MPS[2545-P]
+													{{ m.med_name }}
 												</a>
 											</div>
 										</div>
 									</div>
-									<div class="col-xl-4 col-lg-2 col-md-3 col-sm-4 col-6">
-										<div class="productCard">
-											<div class="productThumb">
-												<img class="img-fluid" src="./assets/images/carousel/element-banner2-right.jpg" alt="ix">
-											</div>
-											<div class="productContent">
-												<a href="#">
-													Men Polo Shirt (M) -MPS[2545-P]
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-2 col-md-3 col-sm-4 col-6">
-										<div class="productCard">
-											<div class="productThumb">
-												<img class="img-fluid" src="./assets/images/carousel/element-banner2-right.jpg" alt="ix">
-											</div>
-											<div class="productContent">
-												<a href="#">
-													Men Polo Shirt (M) -MPS[2545-P]
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-2 col-md-3 col-sm-4 col-6">
-										<div class="productCard">
-											<div class="productThumb">
-												<img class="img-fluid" src="./assets/images/carousel/element-banner2-right.jpg" alt="ix">
-											</div>
-											<div class="productContent">
-												<a href="#">
-													Men Polo Shirt (M) -MPS[2545-P]
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-2 col-md-3 col-sm-4 col-6">
-										<div class="productCard">
-											<div class="productThumb">
-												<img class="img-fluid" src="./assets/images/carousel/element-banner2-right.jpg" alt="ix">
-											</div>
-											<div class="productContent">
-												<a href="#">
-													Men Polo Shirt (M) -MPS[2545-P]
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-2 col-md-3 col-sm-4 col-6">
-										<div class="productCard">
-											<div class="productThumb">
-												<img class="img-fluid" src="./assets/images/carousel/element-banner2-right.jpg" alt="ix">
-											</div>
-											<div class="productContent">
-												<a href="#">
-													Men Polo Shirt (M) -MPS[2545-P]
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-2 col-md-3 col-sm-4 col-6">
-										<div class="productCard">
-											<div class="productThumb">
-												<img class="img-fluid" src="./assets/images/carousel/element-banner2-right.jpg" alt="ix">
-											</div>
-											<div class="productContent">
-												<a href="#">
-													Men Polo Shirt (M) -MPS[2545-P]
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-2 col-md-3 col-sm-4 col-6">
-										<div class="productCard">
-											<div class="productThumb">
-												<img class="img-fluid" src="./assets/images/carousel/element-banner2-right.jpg" alt="ix">
-											</div>
-											<div class="productContent">
-												<a href="#">
-													Men Polo Shirt (M) -MPS[2545-P]
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-2 col-md-3 col-sm-4 col-6">
-										<div class="productCard">
-											<div class="productThumb">
-												<img class="img-fluid" src="./assets/images/carousel/element-banner2-right.jpg" alt="ix">
-											</div>
-											<div class="productContent">
-												<a href="#">
-													Men Polo Shirt (M) -MPS[2545-P]
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-2 col-md-3 col-sm-4 col-6">
-										<div class="productCard">
-											<div class="productThumb">
-												<img class="img-fluid" src="./assets/images/carousel/element-banner2-right.jpg" alt="ix">
-											</div>
-											<div class="productContent">
-												<a href="#">
-													Men Polo Shirt (M) -MPS[2545-P]
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-2 col-md-3 col-sm-4 col-6">
-										<div class="productCard">
-											<div class="productThumb">
-												<img class="img-fluid" src="./assets/images/carousel/element-banner2-right.jpg" alt="ix">
-											</div>
-											<div class="productContent">
-												<a href="#">
-													Men Polo Shirt (M) -MPS[2545-P]
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-2 col-md-3 col-sm-4 col-6">
-										<div class="productCard">
-											<div class="productThumb">
-												<img class="img-fluid" src="./assets/images/carousel/element-banner2-right.jpg" alt="ix">
-											</div>
-											<div class="productContent">
-												<a href="#">
-													Men Polo Shirt (M) -MPS[2545-P]
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-2 col-md-3 col-sm-4 col-6">
-										<div class="productCard">
-											<div class="productThumb">
-												<img class="img-fluid" src="./assets/images/carousel/element-banner2-right.jpg" alt="ix">
-											</div>
-											<div class="productContent">
-												<a href="#">
-													Men Polo Shirt (M) -MPS[2545-P]
-												</a>
-											</div>
-										</div>
-									</div>	
-									<div class="col-xl-4 col-lg-2 col-md-3 col-sm-4 col-6">
-										<div class="productCard">
-											<div class="productThumb">
-												<img class="img-fluid" src="./assets/images/carousel/element-banner2-right.jpg" alt="ix">
-											</div>
-											<div class="productContent">
-												<a href="#">
-													Men Polo Shirt (M) -MPS[2545-P]
-												</a>
-											</div>
-										</div>
-									</div>	
-									<div class="col-xl-4 col-lg-2 col-md-3 col-sm-4 col-6">
-										<div class="productCard">
-											<div class="productThumb">
-												<img class="img-fluid" src="./assets/images/carousel/element-banner2-right.jpg" alt="ix">
-											</div>
-											<div class="productContent">
-												<a href="#">
-													Men Polo Shirt (M) -MPS[2545-P]
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-2 col-md-3 col-sm-4 col-6">
-										<div class="productCard">
-											<div class="productThumb">
-												<img class="img-fluid" src="./assets/images/carousel/element-banner2-right.jpg" alt="ix">
-											</div>
-											<div class="productContent">
-												<a href="#">
-													Men Polo Shirt (M) -MPS[2545-P]
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-2 col-md-3 col-sm-4 col-6">
-										<div class="productCard">
-											<div class="productThumb">
-												<img class="img-fluid" src="./assets/images/carousel/element-banner2-right.jpg" alt="ix">
-											</div>
-											<div class="productContent">
-												<a href="#">
-													Men Polo Shirt (M) -MPS[2545-P]
-												</a>
-											</div>
-										</div>
-									</div>
+									{% endfor %}
+									{% else %}No Products Found!{% endif %}
+									{% comment %}  {% endcomment %}
 								</div>
 							</div>
 						
@@ -438,168 +258,31 @@
 												<tr>
 													<th>Name</th>
 													<th>Quantity</th>
-													<th>Discount</th>
+													<th>Product Price</th>
 													<th>Subtotal</th>
 													<th class=" text-right no-sort"></th>
 												</tr>
 											</thead>
 											<tbody>
+												{% if request.session.med_cart %}
+												{% if med_cart_products %}
+												{% for mc in med_cart_products %}
 												<tr>
-													<td>Tiger Nixon</td>
+													<td>{{ mc.med_name }}</td>
 													<td>
-														<input type="number" value="10" class="form-control border-dark w-100px" id="basicInput2" placeholder="">
+														<input type="number" value="{{ mc|cart_quantity:request.session.med_cart }}" class="form-control border-dark w-100px" id="basicInput2" placeholder="">
 													</td>
-													<td>000</td>
-													<td>000</td>
+													<td>{{ mc.selling_price }}</td>
+													<td>{{ mc|cart_total:request.session.med_cart }}</td>
 													<td>
 														<div class="card-toolbar text-right">
 														<a href="#" class="confirm-delete" title="Delete"><i class="fas fa-trash-alt"></i></a>
 														</div>
 													</td>
 												</tr>
-												<tr>
-													<td>Tiger Nixon</td>
-													<td>
-														<input type="number" value="10" class="form-control border-dark w-100px" id="basicInput3" placeholder="">
-													</td>
-													<td>000</td>
-													<td>000</td>
-													<td>
-														<div class="card-toolbar text-right">
-														<a href="#" class="confirm-delete" title="Delete"><i class="fas fa-trash-alt"></i></a>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>Tiger Nixon</td>
-													<td>
-														<input type="number" value="10" class="form-control border-dark w-100px" id="basicInput4" placeholder="">
-													</td>
-													<td>000</td>
-													<td>000</td>
-													<td>
-														<div class="card-toolbar text-right">
-														<a href="#" class="confirm-delete" title="Delete"><i class="fas fa-trash-alt"></i></a>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>Tiger Nixon</td>
-													<td>
-														<input type="number" value="10" class="form-control border-dark w-100px" id="basicInput5" placeholder="">
-													</td>
-													<td>000</td>
-													<td>000</td>
-													<td>
-														<div class="card-toolbar text-right">
-														<a href="#" class="confirm-delete" title="Delete"><i class="fas fa-trash-alt"></i></a>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>Tiger Nixon</td>
-													<td>
-														<input type="number" value="10" class="form-control border-dark w-100px" id="basicInput61" placeholder="">
-													</td>
-													<td>000</td>
-													<td>000</td>
-													<td>
-														<div class="card-toolbar text-right">
-														<a href="#" class="confirm-delete" title="Delete"><i class="fas fa-trash-alt"></i></a>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>Tiger Nixon</td>
-													<td>
-														<input type="number" value="10" class="form-control border-dark w-100px" id="basicInput7" placeholder="">
-													</td>
-													<td>000</td>
-													<td>000</td>
-													<td>
-														<div class="card-toolbar text-right">
-														<a href="#" class="confirm-delete" title="Delete"><i class="fas fa-trash-alt"></i></a>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>Tiger Nixon</td>
-													<td>
-														<input type="number" value="10" class="form-control border-dark w-100px" id="basicInput8" placeholder="">
-													</td>
-													<td>000</td>
-													<td>000</td>
-													<td>
-														<div class="card-toolbar text-right">
-														<a href="#" class="confirm-delete" title="Delete"><i class="fas fa-trash-alt"></i></a>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>Tiger Nixon</td>
-													<td>
-														<input type="number" value="10" class="form-control border-dark w-100px" id="basicInput9" placeholder="">
-													</td>
-													<td>000</td>
-													<td>000</td>
-													<td>
-														<div class="card-toolbar text-right">
-														<a href="#" class="confirm-delete" title="Delete"><i class="fas fa-trash-alt"></i></a>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>Tiger Nixon</td>
-													<td>
-														<input type="number" value="10" class="form-control border-dark w-100px" id="basicInput98" placeholder="">
-													</td>
-													<td>000</td>
-													<td>000</td>
-													<td>
-														<div class="card-toolbar text-right">
-														<a href="#" class="confirm-delete" title="Delete"><i class="fas fa-trash-alt"></i></a>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>Tiger Nixon</td>
-													<td>
-														<input type="number" value="10" class="form-control border-dark w-100px" id="basicInput88" placeholder="">
-													</td>
-													<td>000</td>
-													<td>000</td>
-													<td>
-														<div class="card-toolbar text-right">
-														<a href="#" class="confirm-delete" title="Delete"><i class="fas fa-trash-alt"></i></a>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>Tiger Nixon</td>
-													<td>
-														<input type="number" value="10" class="form-control border-dark w-100px" id="basicInput78" placeholder="">
-													</td>
-													<td>000</td>
-													<td>000</td>
-													<td>
-														<div class="card-toolbar text-right">
-														<a href="#" class="confirm-delete" title="Delete"><i class="fas fa-trash-alt"></i></a>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>Tiger Nixon</td>
-													<td>
-														<input type="number" value="10" class="form-control border-dark w-100px" id="basicInput6" placeholder="">
-													</td>
-													<td>000</td>
-													<td>000</td>
-													<td>
-														<div class="card-toolbar text-right">
-														<a href="#" class="confirm-delete" title="Delete"><i class="fas fa-trash-alt"></i></a>
-														</div>
-													</td>
-												</tr>
+												{% endfor %}
+												{% else %}No Products Added to cart{% endif %}
+												{% else %}<tr><td class="alert alert-primary">No Products Added<td></tr>{% endif %}
 											
 											</tbody>
 										</table>
@@ -635,14 +318,17 @@
 										<h2 class="mb-0 white">K</h2>
 									</div>
 									<div class="media-body ml-3">
-										<h3 class="title font-weight-bold">The Kundol Shop</h3>
+										<h3 class="title font-weight-bold">{{  shopId.shop_name}}</h3>
 										<p class="phoonenumber">
-											02199+(070)234-4569
+											{{ shopId.shop_contact }}
 										</p>
 										<p class="adddress">
-											Russel st 50,Bostron,MA
+											{{ shopId.shop_address1 }}
 										</p>
-										<p class="countryname">USA</p>
+										<p class="countryname">
+											{% if shopId.is_active == True %}
+											Active</p>
+											{% else %}{% endif %}
 									</div>
 								</div>
 							</div>
@@ -654,42 +340,42 @@
 										<th class="border-0 font-size-h5 mb-0 font-size-bold text-dark">
 												Total Items
 										</th>
-										<td class="border-0 justify-content-end d-flex text-dark font-size-base">6</td>
+										<td class="border-0 justify-content-end d-flex text-dark font-size-base">{{ med_cart_products|total_cart_items:request.session.med_cart }}</td>
 										
 									  </tr>
 									  <tr class="d-flex align-items-center justify-content-between">
 										<th class="border-0 font-size-h5 mb-0 font-size-bold text-dark">
 												Subtotal
 										</th>
-										<td class="border-0 justify-content-end d-flex text-dark font-size-base">$900</td>
+										<td class="border-0 justify-content-end d-flex text-dark font-size-base">${{ med_cart_products|get_grand_total:request.session.med_cart }}</td>
 										
 									  </tr>
-									  <tr class="d-flex align-items-center justify-content-between">
+									  {% comment %} <tr class="d-flex align-items-center justify-content-between">
 										<th class="border-0 ">
 											<div class="d-flex align-items-center font-size-h5 mb-0 font-size-bold text-dark">
-											DISCOUNT(65%)
-											<span class="badge badge-secondary white rounded-circle ml-2"  data-toggle="modal" data-target="#discountpop">
-												<svg xmlns="http://www.w3.org/2000/svg" class="svg-sm" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_31" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-													<g>
-													<rect x="234.362" y="128" width="43.263" height="256"></rect>
-													<rect x="128" y="234.375" width="256" height="43.25"></rect>
-													</g>
-													</svg>
-											</span>
+												DISCOUNT(65%)
+												<span class="badge badge-secondary white rounded-circle ml-2"  data-toggle="modal" data-target="#discountpop">
+													<svg xmlns="http://www.w3.org/2000/svg" class="svg-sm" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_31" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+														<g>
+														<rect x="234.362" y="128" width="43.263" height="256"></rect>
+														<rect x="128" y="234.375" width="256" height="43.25"></rect>
+														</g>
+														</svg>
+												</span>
 										
 										</div>
 										</th>
 										<td class="border-0 justify-content-end d-flex text-dark font-size-base">10%</td>
 										
-									  </tr>
-									  <tr class="d-flex align-items-center justify-content-between">
+									  </tr> {% endcomment %}
+									  {% comment %} <tr class="d-flex align-items-center justify-content-between">
 										<th class="border-0 font-size-h5 mb-0 font-size-bold text-dark">
 												Tax
 										</th>
 										<td class="border-0 justify-content-end d-flex text-dark font-size-base">$9</td>
 										
-									  </tr>
-									  <tr class="d-flex align-items-center justify-content-between">
+									  </tr> {% endcomment %}
+									  {% comment %} <tr class="d-flex align-items-center justify-content-between">
 										<th class="border-0">
 											<div class="d-flex align-items-center font-size-h5 mb-0 font-size-bold text-dark">
 										    Shipping Cost
@@ -706,20 +392,20 @@
 										</th>
 										<td class="border-0 justify-content-end d-flex text-dark font-size-base">$0</td>
 										
-									  </tr>
-									  <tr class="d-flex align-items-center justify-content-between">
+									  </tr> {% endcomment %}
+									  {% comment %} <tr class="d-flex align-items-center justify-content-between">
 										<th class="border-0 font-size-h5 mb-0 font-size-bold text-dark">
 											  Additional Disscount(15%)
 										</th>
 										<td class="border-0 justify-content-end d-flex text-dark font-size-base">$9</td>
 										
-									  </tr>
+									  </tr> {% endcomment %}
 									  <tr class="d-flex align-items-center justify-content-between item-price">
 										<th class="border-0 font-size-h5 mb-0 font-size-bold text-primary">
 											
 												TOTAL
 										</th>
-										<td class="border-0 justify-content-end d-flex text-primary font-size-base">$81000</td>
+										<td class="border-0 justify-content-end d-flex text-primary font-size-base">${{ med_cart_products|get_grand_total:request.session.med_cart }}</td>
 										
 									  </tr>
 								

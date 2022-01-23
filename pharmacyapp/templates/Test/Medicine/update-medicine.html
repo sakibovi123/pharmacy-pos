@@ -175,55 +175,67 @@
                   </div>
                  
                   <!-- add brand form start -->
-                  <form>
+                  <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %} 
                     <div class="form-group">
                       <label for="brandName">Medicine Name</label>
-                      <input type="text" class="form-control" id="brandName" aria-describedby="brandname" placeholder="Type Medicine Name..">
+                      <input type="text" name="med_name" value={{ med_ids.med_name }} class="form-control" id="brandName" aria-describedby="brandname" placeholder="Type Medicine Name..">
                     </div>
 
                     <div class="mb-3">
-                        <select class="form-control">
-                            <option>Select Category</option>
-                            <option>1</option>
-                            <option>2</option>
+                        <select class="form-control" name="med_category">
+                          <option value="{{ med_ids.med_category }}">Selected Category: {{ med_ids.med_category }}</option>
+                            {% for c in cats %}
+                              <option value="{{ c.med_cat_name }}">{{ c.med_cat_name }}</option>
+                            {% endfor %}
                           </select>
                     </div>
                     <div class="mb-3">
-                        <select class="form-control">
-                            <option>Select Brand</option>
-                            <option>1</option>
-                            <option>2</option>
+                        <select class="form-control" name="med_brand">
+                          <option value="{{ med_ids.med_brand }}">Selected Brand: {{ med_ids.med_brand }}</option>
+                            {% for b in brands %}
+                            
+                              <option value="{{ b.med_brand_name }}">{{ b.med_brand_name }}</option>
+                            {% endfor %}
+                            
                           </select>
                     </div>
                     <div class="mb-3">
-                        <select class="form-control">
-                            <option>Select Power(MG)</option>
-                            <option>1</option>
-                            <option>2</option>
+                        <select class="form-control" name="med_power">
+                          <option value="{{ med_ids.med_power }}">Select Power: {{ med_ids.med_power }}</option>
+                            {% for p in powers %}
+                            
+                            <option value="{{ p.power_amount }}">{{ p.power_amount }}</option>
+                            {% endfor %}
                           </select>
                     </div>
                     <div class="mb-3">
-                        <select class="form-control">
-                            <option>Select Vendor</option>
-                            <option>1</option>
-                            <option>2</option>
+                        <select class="form-control" name="med_vendor">
+                          <option value="{{ med_ids.med_vendor }}">Selected Vendor: {{ med_ids.med_vendor }}</option>
+                            {% for v in vendors %}
+                              <option value="{{ v.vendor_name }}">{{ v.vendor_name }}</option>
+                            {% endfor %}
                           </select>
                     </div>
                     <div class="mb-3">
-                        <select class="form-control">
-                            <option>Stock Availability</option>
-                            <option>Yes</option>
-                            <option>No</option>
+                        <select class="form-control" name="is_out_of_stock">
+                            <option value="{{ med_ids.is_out_of_stock }}">Stock Availability: {{ med_ids.is_out_of_stock }}</option>
+                            <option value="YES">Yes</option>
+                            <option value="NO">No</option>
                           </select>
                     </div>
 
                     <div class="form-group">
                         <label for="buyingprice">Buyiing Price</label>
-                        <input type="number" class="form-control" id="buyingprice" aria-describedby="buyingprice" placeholder="Type Buying Price..">
+                        <input type="number" name="buying_price" value="{{ med_ids.buying_price }}" class="form-control" id="buyingprice" aria-describedby="buyingprice" placeholder="Type Buying Price..">
                       </div>
                       <div class="form-group">
                         <label for="sellingPrice">Selling Price</label>
-                        <input type="number" class="form-control" id="sellingPrice" aria-describedby="sellingprice" placeholder="Type Selling Price..">
+                        <input type="number" name="selling_price" value="{{ med_ids.selling_price }}" class="form-control" id="sellingPrice" aria-describedby="sellingprice" placeholder="Type Selling Price..">
+                      </div>
+                      <div class="form-group">
+                        <label for="sellingPrice">Stock Amount</label>
+                        <input type="number" name="stock_amount" value="{{ med_ids.stock_amount }}" class="form-control" id="stockAmount" aria-describedby="sellingprice" placeholder="Type Selling Price..">
                       </div>
 
                     <div class="upload_____img mb-3">
@@ -231,9 +243,8 @@
                       <input
                         type="file"
                         id="createuploadImg"
-                        name="uploadImg"
                         onchange="forupload(this)"
-                        name="item_img"
+                        name="med_image"
                         accept="image/*"
                       />
                       <div class="my-2">
