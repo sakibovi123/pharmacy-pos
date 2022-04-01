@@ -340,14 +340,22 @@
 										<th class="border-0 font-size-h5 mb-0 font-size-bold text-dark">
 												Total Items
 										</th>
-										<td class="border-0 justify-content-end d-flex text-dark font-size-base">{{ med_cart_products|total_cart_items:request.session.med_cart }}</td>
+										<td class="border-0 justify-content-end d-flex text-dark font-size-base">
+                                            {% if request.session.med_cart %}
+                                            {{ med_cart_products|total_cart_items:request.session.med_cart }}
+                                            {% else %}0{% endif %}
+                                        </td>
 										
 									  </tr>
 									  <tr class="d-flex align-items-center justify-content-between">
 										<th class="border-0 font-size-h5 mb-0 font-size-bold text-dark">
 												Subtotal
 										</th>
-										<td class="border-0 justify-content-end d-flex text-dark font-size-base">${{ med_cart_products|get_grand_total:request.session.med_cart }}</td>
+										<td class="border-0 justify-content-end d-flex text-dark font-size-base">
+                                            {% if request.session.med_cart %}
+                                            ${{ med_cart_products|get_grand_total:request.session.med_cart }}
+                                            {% else %}0{% endif %}
+                                        </td>
 										
 									  </tr>
 									  {% comment %} <tr class="d-flex align-items-center justify-content-between">
@@ -405,7 +413,11 @@
 											
 												TOTAL
 										</th>
-										<td class="border-0 justify-content-end d-flex text-primary font-size-base">${{ med_cart_products|get_grand_total:request.session.med_cart }}</td>
+										<td class="border-0 justify-content-end d-flex text-primary font-size-base">
+                                            {% if request.session.med_cart %}
+                                            ${{ med_cart_products|get_grand_total:request.session.med_cart }}
+                                            {% else %} 0 {% endif %}
+                                        </td>
 										
 									  </tr>
 								

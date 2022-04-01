@@ -73,7 +73,8 @@ class PharmaHome(LoginRequiredMixin, View):
             meds = Medicine.objects.filter(
                 shop=shop_id
             )
-
+            print(meds)
+            
             if not med_cart:
                 request.session.med_cart = {}
             
